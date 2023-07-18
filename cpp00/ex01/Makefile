@@ -6,13 +6,13 @@
 #    By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 10:30:32 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/07/18 09:37:40 by ttikanoj         ###   ########.fr        #
+#    Updated: 2023/07/18 11:10:18 by ttikanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = pb3k
 
-SRC = phonebook.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
