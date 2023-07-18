@@ -1,56 +1,97 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 15:16:06 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/07/18 09:31:08 by ttikanoj         ###   ########.fr       */
+/*   Created: 2023/07/18 11:40:38 by ttikanoj          #+#    #+#             */
+/*   Updated: 2023/07/18 13:46:24 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <iostream>
+#include "Contact.hpp"
 #include <string>
+#include <iostream>
 
-class Contact
-{
-	//private:
-	std::string	firstname;
-	std::string	lastname;
-	std::string	nickname;
-	std::string	phonenumber;
-	std::string	secret;
-	int			index;
-
-	//public:
-	//constructor
-	//destructor
-
-	//GETTERS AND SETTERS
-	//std::string get_info (for each of the elements above)
-	//void		set_info (for each of the elements above)
-};
 
 class PhoneBook
 {
 	//private:
-	Contact MyContacts[8];
-	int		size;
+	public:
+	Contact contacts[8];
 
-	//public:
 	//SETTERS
+	int		size;
 	//constructor()
 	//destructor()
 	//add()
-	//search()
-	//print()
+	void	display_contacts();
 	
 	//GETTERS
 	//get_contact()
 };
+
+void	PhoneBook::display_contacts()
+{
+	int i = 0;
+	int j = 0;
+
+	if (size == 0)
+	{
+		std::cout << "Please add something first!" << std::endl;
+		return ;
+	}
+	std::cout << "index     |first name|last name |nickname  " << std::endl;
+	while (i < size)
+	{
+		std::cout << "         " << i << "|";
+		if (contacts[i].firstname.length() > 9)
+			std::cout << contacts[i].firstname.substr(0, 9) << ".";
+		else
+		{
+			j = contacts[i].firstname.length();
+			j = 10 - j;
+			while (j)
+			{
+				std::cout << " ";
+				j--;
+			}
+			std::cout << contacts[i].firstname;
+		}
+		std::cout << "|";
+		if (contacts[i].lastname.length() > 9)
+			std::cout << contacts[i].lastname.substr(0, 9) << ".";
+		else
+		{
+			j = contacts[i].lastname.length();
+			j = 10 - j;
+			while (j)
+			{
+				std::cout << " ";
+				j--;
+			}
+			std::cout << contacts[i].lastname;
+		}
+		std::cout << "|";
+		if (contacts[i].nickname.length() > 9)
+			std::cout << contacts[i].nickname.substr(0, 9) << ".";
+		else
+		{
+			j = contacts[i].nickname.length();
+			j = 10 - j;
+			while (j)
+			{
+				std::cout << " ";
+				j--;
+			}
+			std::cout << contacts[i].nickname << std::endl;
+		}
+		i++;
+	}
+}
 
 #endif
