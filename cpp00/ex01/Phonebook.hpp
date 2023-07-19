@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:40:38 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/07/18 13:46:24 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:25:00 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,12 @@
 
 class PhoneBook
 {
-	//private:
-	public:
+public:
 	Contact contacts[8];
-
-	//SETTERS
 	int		size;
-	//constructor()
-	//destructor()
-	//add()
 	void	display_contacts();
-	
-	//GETTERS
-	//get_contact()
+	void	choose_contact();
+	void	rotate_contacts(PhoneBook *pb);
 };
 
 void	PhoneBook::display_contacts()
@@ -45,7 +38,7 @@ void	PhoneBook::display_contacts()
 		std::cout << "Please add something first!" << std::endl;
 		return ;
 	}
-	std::cout << "index     |first name|last name |nickname  " << std::endl;
+	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	while (i < size)
 	{
 		std::cout << "         " << i << "|";
@@ -92,6 +85,41 @@ void	PhoneBook::display_contacts()
 		}
 		i++;
 	}
+	std::cout << std::endl;
+	PhoneBook::choose_contact();
 }
 
+void PhoneBook::choose_contact()
+{
+    std::string input;
+    int index = 0;
+
+    std::cout << "Please enter the index of the desired contact." << std::endl;
+    std::getline(std::cin, input);
+    
+    if (input.length() != 1 || input[0] < '0' || input[0] >= '0' + size)
+    {
+        std::cout << "Invalid input. Please enter a number between 0 and " << size - 1 << "." << std::endl;
+        PhoneBook::choose_contact();
+        return;
+    }
+    
+    index = input[0] - '0';
+    std::cout << std::endl;
+    std::cout << "First name        : " << contacts[index].firstname << std::endl;
+    std::cout << "Last name         : " << contacts[index].lastname << std::endl;
+    std::cout << "Nickname          : " << contacts[index].nickname << std::endl;
+    std::cout << "Phone number      : " << contacts[index].phonenumber << std::endl;
+    std::cout << "Darkest secret... : " << contacts[index].secret << std::endl;
+}
+
+void PhoneBook::rotate_contacts(PhoneBook *pb)
+{
+	int i = 1;
+	while (i <= 7)
+	{
+		pb->contacts[i - 1] = pb->contacts[i];
+		i++;
+	}
+}
 #endif
