@@ -10,4 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
 
+const std::string& Weapon::getType() const{
+    return (this->type);
+}
