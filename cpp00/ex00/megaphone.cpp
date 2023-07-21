@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 		while(av[j][i])
 		{
 			if (av[j][i] >= 'a' && av[j][i] <= 'z')
-				av[j][i] = toupper(av[j][i]);
+				av[j][i] = std::toupper(av[j][i]);
 			std::cout << av[j][i];
 			i++;
 		}

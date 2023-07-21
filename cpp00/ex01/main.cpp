@@ -18,7 +18,7 @@ int	main(void)
 	Contact		contact;
 	std::string	input;
 	
-	pb.size = 0;
+	pb.setSize(0);
 	std::cout << "Hi, welcome to PhoneBook3000!" << std::endl;
 	while (1)
 	{
@@ -27,15 +27,15 @@ int	main(void)
 		std::cout << std::endl;
 		if (input == "ADD")
 		{
-			if (pb.size == 8)
+			if (pb.getSize() == 8)
 			{
 				pb.rotate_contacts(&pb);
-				pb.contacts[7] = contact.add_contact();
+				pb.setContact(7, contact);
 			}
 			else
 			{
-				pb.contacts[pb.size] = contact.add_contact();
-				pb.size++;
+				pb.setContact(pb.getSize(), contact);
+				pb.setSize(pb.getSize() + 1);
 			}
 		}
 		else if (input == "SEARCH")

@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 10:30:32 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/07/18 11:10:18 by ttikanoj         ###   ########.fr        #
+#    Updated: 2023/07/20 15:47:19 by tuukka           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pb3k
+NAME = brain
 
-SRC = main.cpp Contact.cpp Phonebook.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

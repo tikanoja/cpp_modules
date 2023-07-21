@@ -18,7 +18,7 @@
 
 class Contact
 {
-public:
+private:
 	std::string	firstname;
 	std::string	lastname;
 	std::string	nickname;
@@ -26,54 +26,22 @@ public:
 	std::string	secret;
 	int			index;
 
+public:
 	Contact		add_contact(void);
+
+	void	setFirstname(std::string name);
+	void	setLastname(std::string name);
+	void	setNickname(std::string name);
+	void	setPhonenumber(std::string phonenumber);
+	void	setSecret(std::string secret);
+	void	setIndex(int i);
+
+	std::string	getFirstname();
+	std::string	getLastname();
+	std::string	getNickname();
+	std::string	getPhonenumber();
+	std::string	getSecret();
+	int	getIndex();
 };
-
-Contact	Contact::add_contact(void)
-{
-	Contact newContact;
-
-	while (1){
-		std::cout << "Enter first name: ";
-		std::getline(std::cin, newContact.firstname);
-		if (newContact.firstname.length() == 0)
-			std::cout << "Please enter something..." << std::endl;
-		else
-			break;
-	}
-	while (1){
-		std::cout << "Enter last name: ";
-		std::getline(std::cin, newContact.lastname);
-		if (newContact.lastname.length() == 0)
-			std::cout << "Please enter something..." << std::endl;
-		else
-			break;
-	}
-	while (1){
-		std::cout << "Enter nickname: ";
-		std::getline(std::cin, newContact.nickname);
-		if (newContact.nickname.length() == 0)
-			std::cout << "Please enter something..." << std::endl;
-		else
-			break;
-	}
-	while (1){
-		std::cout << "Enter phone number: ";
-		std::getline(std::cin, newContact.phonenumber);
-		if (newContact.phonenumber.length() == 0)
-			std::cout << "Please enter something..." << std::endl;
-		else
-			break;
-	}
-	while (1){
-		std::cout << "Enter your darkest secret: ";
-		std::getline(std::cin, newContact.secret);
-		if (newContact.secret.length() == 0)
-			std::cout << "Please enter something..." << std::endl;
-		else
-			break;
-	}
-	return (newContact);
-}
 
 #endif
