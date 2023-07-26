@@ -39,6 +39,12 @@ int main(int ac, char **av){
     outFile.open(temp);
     temp.clear();
 
+    if (!outFile){
+        std::cerr << "Failed to open file!" << std::endl;
+        inFile.close();
+        return (1);
+    }
+
     while (std::getline(inFile, temp)){
         i = 0;
         while (i != -1){
