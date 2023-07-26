@@ -23,4 +23,3 @@ int main(void)
 	harl.complain("");
 	return (0);
 }
-
