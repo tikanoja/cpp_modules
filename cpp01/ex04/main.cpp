@@ -17,6 +17,8 @@ int main(int ac, char **av){
     std::ifstream inFile;
     std::ofstream outFile;
     std::string temp;
+    int len = 0;
+    int i;
     
     if (ac != 4){
         std::cerr << "Please provide 3 args. <filename>, <to be replaced>, <what to replace with>" << std::endl;
@@ -30,14 +32,24 @@ int main(int ac, char **av){
         return (1);
     }
 
+    while (av[2][len])
+        len++;
     temp = av[1];
     temp = temp + ".replace";
     outFile.open(temp);
     temp.clear();
 
     while (std::getline(inFile, temp)){
-        int i = temp.find(av[2]);
-        outFile << i << std::endl;
+        i = 0;
+        while (i != -1){
+            i = temp.find(av[2]);
+            if (i > -1)
+            {
+                temp.std::string::erase(i, len);
+                temp.std::string::insert(i, av[3]);
+            }
+        }
+        outFile << temp << std::endl;
     }
 
     inFile.close();
