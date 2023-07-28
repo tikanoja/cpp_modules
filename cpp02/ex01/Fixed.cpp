@@ -21,12 +21,12 @@ Fixed::Fixed(void){
 }
 
 Fixed::Fixed(const int i){
-    this->fixed_point_value = i;
+    this->fixed_point_value = i * (1 << this->fractional_bits);
     return ;
 }
 
 Fixed::Fixed(const float d){
-    this->fixed_point_value = std::roundf(d);
+    this->fixed_point_value = std::roundf(d * (1 << this->fractional_bits));
     return ;
 }
 
@@ -63,4 +63,9 @@ float Fixed::toFloat(void) const{
 
 int Fixed::toInt(void) const{
     return (this->fixed_point_value);
+}
+
+std::ostream& operator<<(std::ostream &output, const Fixed &f){
+    output << f.toFloat();
+    return (output);
 }
