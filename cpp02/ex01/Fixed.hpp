@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:57:51 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/07/28 09:21:28 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/07/30 17:03:41 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed{
     public:
         Fixed(void);
         Fixed(const int i); //new
-        Fixed(const float d); //new
+        Fixed(const float num); //new
         Fixed(const Fixed &f);
         ~Fixed(void);
         Fixed& operator=(const Fixed& f);
