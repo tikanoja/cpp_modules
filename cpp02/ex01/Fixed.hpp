@@ -23,8 +23,8 @@ class Fixed{
 
     public:
         Fixed(void);
-        Fixed(const int i); //new
-        Fixed(const float num); //new
+        Fixed(const int i);
+        Fixed(const float num);
         Fixed(const Fixed &f);
         ~Fixed(void);
         Fixed& operator=(const Fixed& f);
