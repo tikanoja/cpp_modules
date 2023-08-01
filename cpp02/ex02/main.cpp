@@ -22,7 +22,7 @@
 //     std::cout << a++ << std::endl;
 //     std::cout << a << std::endl;
 //     std::cout << b << std::endl;
-//     //std::cout << Fixed::max( a, b ) << std::endl;
+//     std::cout << Fixed::max( a, b ) << std::endl;
 //     return 0;
 // }
 
@@ -52,9 +52,9 @@ int main(void) {
     std::cout << "a: " << a << std::endl;
     std::cout << "++a: " << ++a << std::endl;
     std::cout << "a: " << a << std::endl;
-    std::cout << "--b: " << --b << std::endl;
-    std::cout << "b: " << b << std::endl;
     std::cout << "b--: " << b-- << std::endl;
+    std::cout << "b: " << b << std::endl;
+    std::cout << "--b: " << --b << std::endl;
     std::cout << "b: " << b << std::endl;
 
     std::cout << std::endl << "Min & Max" << std::endl;
@@ -63,9 +63,9 @@ int main(void) {
     Fixed larger = Fixed::max(a, b);
     const Fixed largerConst = Fixed::max(a, b);
 
-    std::cout << "Smaller (non-const): " << smaller << std::endl;
+    std::cout << "Smaller: " << smaller << std::endl;
     std::cout << "Smaller (const): " << smallerConst << std::endl;
-    std::cout << "Larger (non-const): " << larger << std::endl;
+    std::cout << "Larger: " << larger << std::endl;
     std::cout << "Larger (const): " << largerConst << std::endl;
 
     return (0);
