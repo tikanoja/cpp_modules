@@ -6,16 +6,18 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:53:19 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/03 15:25:08 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/03 16:07:45 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void){
     ClapTrap clap("Clap");
     ScavTrap scav("Scav");
+    FragTrap frag("Frag");
 
     clap.attack("your mom");
     scav.attack("some kind of goblin");
@@ -32,6 +34,7 @@ int main(void){
     // }
     clap.takeDamage(200);
     scav.takeDamage(200);
+    frag.highFivesGuys();
     //as the objects are on the stack, we'll start destroying them LIFO
     return (0);
 }

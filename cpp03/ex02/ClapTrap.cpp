@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:53:05 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/03 14:18:58 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/03 15:57:31 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy){
 }
 
 ClapTrap::~ClapTrap(void){
-    std::cout << "ClapTrap Destructor called" << std::endl;
+    std::cout << "ClapTrap destructor called" << std::endl;
     return ;
 }
 
