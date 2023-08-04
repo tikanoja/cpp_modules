@@ -10,4 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Dog.hpp"
 
+void Dog::makeSound(void){
+    std::cout << "Woof woof!" << std::endl;
+    return ;
+}
