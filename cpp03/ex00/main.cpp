@@ -14,13 +14,13 @@
 
 int main(void){
     ClapTrap robotti("Aku");
-    robotti.attack("Iines");
+    robotti.attack("Hannu");
     robotti.takeDamage(7);
     robotti.beRepaired(10);
     robotti.takeDamage(4);
     robotti.beRepaired(1111155);
-    robotti.beRepaired(2147483650);
-    robotti.takeDamage(2147483650);
-    robotti.attack("Iines");
+    robotti.beRepaired(INT_MAX);
+    robotti.takeDamage(INT_MAX);
+    robotti.attack("Teppo");
     return (0);
 }
