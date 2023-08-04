@@ -16,8 +16,13 @@
 int main(void){
     ClapTrap clap("Clap");
     ScavTrap scav("Scav");
+    // ScavTrap copy1(scav);
+    // ScavTrap copy2 = copy1;
 
-    clap.attack("your mom");
+
+    // copy1.attack("???");
+    // copy2.attack("???");
+    clap.attack("your bully");
     scav.attack("some kind of goblin");
     clap.takeDamage(5);
     scav.takeDamage(5);
@@ -28,10 +33,9 @@ int main(void){
     //     clap.attack("an annoying mosquito");
     // }
     // for (int i = 0; i < 49; i++){
-    //     scav.attack("the goblin king");
+    //     scav.attack("a zombie bee");
     // }
     clap.takeDamage(200);
     scav.takeDamage(200);
-    //as the objects are on the stack, we'll start destroying them LIFO
     return (0);
 }
