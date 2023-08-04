@@ -14,6 +14,9 @@
 
 int main(void){
     ClapTrap robotti("Aku");
+    ClapTrap copy;
+    copy = robotti;
+    copy.attack("Aku");
     robotti.attack("Hannu");
     robotti.takeDamage(7);
     robotti.beRepaired(10);
