@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/04 09:27:40 by ttikanoj          #+#    #+#             */
+/*   Updated: 2023/08/04 09:27:44 by ttikanoj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-
 
 ScavTrap::ScavTrap(void) : ClapTrap(){
     std::cout << "ScavTrap constructor called (void input)" << std::endl;
