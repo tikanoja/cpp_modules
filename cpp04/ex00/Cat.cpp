@@ -13,12 +13,8 @@
 #include "Cat.hpp"
 
 Cat::Cat(void) : Animal(){
-    std::cout << "Cat constructor called (void input)" << std::endl;
-    return ;
-};
-
-Cat::Cat(std::string type) : Animal(type){
-    std::cout << "Cat constructor called for type " << type << std::endl;
+    std::cout << "Cat constructor called" << std::endl;
+    this->type = "Cat";
     return ;
 }
 
@@ -30,10 +26,15 @@ Cat::Cat(const Cat &copy) : Animal(copy){
 Cat& Cat::operator=(const Cat &copy){
     std::cout << "Cat copy assignment constructor called. " << this->type << " will be " << copy.type << "from now on" << std::endl;
     Animal::operator=(copy);
-    return ;
+    return (*this);
 }
 
 Cat::~Cat(void){
     std::cout << "Cat destructor called" << std::endl;
     return ;
-};
+}
+
+void Cat::makeSound(void) const{
+    std::cout << "*Meooooooooow!*" << std::endl;
+    return ;
+}

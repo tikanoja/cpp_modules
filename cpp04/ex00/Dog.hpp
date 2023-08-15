@@ -18,11 +18,10 @@
 class Dog : public Animal{
     public:
         Dog(void);
-        Dog(std::string type);
-        Dog(const Animal &copy);
-        Dog& operator=(const Animal &copy);
+        Dog(const Dog &copy);
+        Dog& operator=(const Dog &copy);
         ~Dog(void);
-        void makeSound(void);
+        void virtual makeSound() const;
 };
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,4 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "WrongCat.hpp"
 
+WrongCat::WrongCat(void) : WrongAnimal(){
+    std::cout << "WrongCat constructor called" << std::endl;
+    this->type = "WrongCat";
+    return ;
+}
+
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy){
+    std::cout << "WrongCat copy constructor called. Copying " << copy.type << std::endl;
+    return ;
+}
+
+WrongCat& WrongCat::operator=(const WrongCat &copy){
+    std::cout << "WrongCat copy assignment constructor called. " << this->type << " will be " << copy.type << "from now on" << std::endl;
+    WrongAnimal::operator=(copy);
+    return (*this);
+}
+
+WrongCat::~WrongCat(void){
+    std::cout << "WrongCat destructor called" << std::endl;
+    return ;
+}

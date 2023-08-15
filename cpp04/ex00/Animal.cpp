@@ -14,14 +14,8 @@
 #include "Animal.hpp"
 
 Animal::Animal(void){
-    std::cout << "Animal constructor called (void)" << std::endl;
-    this->type = "unidentifiable critter";
-    return ;
-}
-
-Animal::Animal(std::string type){
-    std::cout << "Animal constructor called for type " << type << std::endl;
-    this->type = type;
+    std::cout << "Animal constructor called" << std::endl;
+    this->type = "Default animal";
     return ;
 }
 
@@ -44,7 +38,11 @@ Animal::~Animal(void){
     return ;
 }
 
-void Animal::makeSound(void){
-    std::cout << "*Generic animal noise*" << std::endl;
+void Animal::makeSound(void) const{
+    std::cout << "*Default animal noises*" << std::endl;
     return ;
+}
+
+std::string Animal::getType(void) const{
+    return (this->type);
 }

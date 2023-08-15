@@ -13,4 +13,20 @@
 #ifndef WRONGANIMAL_HPP
 # define WRONGANIMAL_HPP
 
+#include <string>
+#include <iostream>
+
+class WrongAnimal{
+    protected:
+        std::string type;
+
+    public:
+        WrongAnimal(void);
+        WrongAnimal(const WrongAnimal &copy);
+        WrongAnimal& operator=(const WrongAnimal &copy);
+        std::string getType(void) const;
+        virtual ~WrongAnimal(void);
+        virtual void makeSound() const;
+};
+
 #endif

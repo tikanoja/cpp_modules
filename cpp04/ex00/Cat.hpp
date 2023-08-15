@@ -18,11 +18,10 @@
 class Cat : public Animal{
     public:
         Cat(void);
-        Cat(std::string type);
         Cat(const Cat &copy);
         Cat& operator=(const Cat &copy);
         ~Cat(void);
+        void virtual makeSound() const;
 };
 
 #endif
-
