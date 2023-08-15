@@ -39,5 +39,12 @@ int main()
     for (int i = 0; i < 10; i++){
         delete myPets[i];
     }
+
+    // //shallow/deep test
+    // Dog original;
+    // {
+    //     Dog copy = original;
+    // }
+    // std::cout << "copy now out of scope" << std::endl;
     return 0;
 }
