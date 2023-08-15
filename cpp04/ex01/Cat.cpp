@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:26 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/14 13:25:21 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/15 21:23:03 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ Cat::Cat(void) : Animal(){
 
 Cat::Cat(const Cat &copy) : Animal(copy){
     std::cout << "Cat copy constructor called. Copying " << copy.type << "." << std::endl;
+    this->catbrain = new Brain(*copy.catbrain);
     return ;
 }
 
 Cat& Cat::operator=(const Cat &copy){
     std::cout << "Cat copy assignment constructor called." << std::endl;
     Animal::operator=(copy);
+    this->catbrain = new Brain(*copy.catbrain);
     return (*this);
 }
 
