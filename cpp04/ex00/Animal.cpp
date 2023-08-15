@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:12 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/04 10:26:13 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:37:58 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,10 @@ Animal& Animal::operator=(const Animal &copy){
 
 Animal::~Animal(void){
     std::cout << "Animal destructor called, goodbye " << this->type << std::endl;
+    return ;
+}
+
+void Animal::makeSound(void){
+    std::cout << "*Generic animal noise*" << std::endl;
     return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:19 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/04 10:26:20 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:37:02 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Animal{
         Animal(const Animal &copy);
         Animal& operator=(const Animal &copy);
         ~Animal(void);
+        void makeSound();
 };
 
 #endif
