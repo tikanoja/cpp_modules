@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:41 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/04 10:26:42 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/15 21:34:57 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ Dog::Dog(void) : Animal(){
 }
 
 Dog::Dog(const Dog &copy) : Animal(copy){
-    std::cout << "Dog copy constructor called. Copying " << copy.type << std::endl;
+    std::cout << "Dog copy constructor called: Copying " << copy.type << "." << std::endl;
+    this->dogbrain = new Brain(*copy.dogbrain);
     return ;
 }
 
 Dog& Dog::operator=(const Dog &copy){
-    std::cout << "Dog copy assignment constructor called. " << this->type << " will be " << copy.type << "from now on" << std::endl;
+    std::cout << "Dog copy assignment constructor called." << std::endl;
     Animal::operator=(copy);
+    this->dogbrain = new Brain(*copy.dogbrain);
     return (*this);
 }
 
