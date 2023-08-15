@@ -46,3 +46,8 @@ void Animal::makeSound(void) const{
 std::string Animal::getType(void) const{
     return (this->type);
 }
+
+std::string Animal::getIdea(int i){
+    (void)i;
+    return ("Default animal has no ideas...");
+}

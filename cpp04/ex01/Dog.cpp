@@ -15,6 +15,7 @@
 Dog::Dog(void) : Animal(){
     std::cout << "Dog constructor called" << std::endl;
     this->type = "Dog";
+    this->dogbrain = new Brain();
     return ;
 }
 
@@ -31,10 +32,15 @@ Dog& Dog::operator=(const Dog &copy){
 
 Dog::~Dog(void){
     std::cout << "Dog destructor called" << std::endl;
+    delete this->dogbrain;
     return ;
 }
 
 void Dog::makeSound(void) const{
     std::cout << "*Woof woof!*" << std::endl;
     return ;
+}
+
+std::string Dog::getIdea(int i){
+    return (this->dogbrain->returnIdea(i));
 }

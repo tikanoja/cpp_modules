@@ -10,41 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const Animal* meta = new Animal();
-
+    //tee animal array
+    Animal* myPets[10];
+    //tayta puolet kiisu ja koira
+    for (int i = 0; i < 10; i++){
+        if (i < 5)
+            myPets[i] = new Dog();
+        else
+            myPets[i] = new Cat();
+    }
     std::cout << std::endl;
-    std::cout << "j is a " << j->getType() << std::endl;
-    std::cout << "i is a " << i->getType() << std::endl;
-    std::cout << "meta is a " << meta->getType() << std::endl;
+    //laita elaimet laulamaan ja kerro ideat
+    for (int i = 0; i < 10; i++){
+        myPets[i]->makeSound();
+    }
     std::cout << std::endl;
-
-    std::cout << "j->makeSound():" << std::endl;
-    j->makeSound();
-    std::cout << "i->makeSound():" << std::endl;
-    i->makeSound();
-    std::cout << "meta->makeSound():" << std::endl;
-    meta->makeSound();
+    for (int i = 0; i < 100; i++){
+        std::cout << myPets[1]->getIdea(i) << std::endl;
+    }
     std::cout << std::endl;
-
-    const WrongAnimal* wcat = new WrongCat();
-    std::cout << "wcat is a " << wcat->getType() << std::endl;
-    std::cout << "wcat->makeSound():" << std::endl;
-    wcat->makeSound();
-    std::cout << std::endl;
-
-    delete j;
-    delete i;
-    delete meta;
-    delete wcat;
+    //delete elaimet
+    for (int i = 0; i < 10; i++){
+        delete myPets[i];
+    }
     return 0;
 }
