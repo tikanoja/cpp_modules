@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:15 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/16 13:17:26 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:10:37 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 
-class Bureaucrat{
+class Bureaucrat {
 	private:
 		std::string const name;
 		int grade;
@@ -31,6 +31,8 @@ class Bureaucrat{
 		int getGrade(void) const;
 		void increaseGrade(void);
 		void decreaseGrade(void);
+		int GradeTooHighException();
+		int GradeTooLowException();
 };
 
 std::ostream& operator<<(std::ostream &output, const Bureaucrat &b);
