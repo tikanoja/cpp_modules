@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+         #
+#    By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 13:53:37 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/08/03 15:30:55 by tuukka           ###   ########.fr        #
+#    Updated: 2023/08/16 12:20:54 by ttikanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = animals
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
