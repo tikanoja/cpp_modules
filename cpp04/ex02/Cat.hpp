@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/14 13:16:58 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/16 11:55:44 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Cat : public Animal{
         ~Cat(void);
         void virtual makeSound() const;
         std::string getIdea(int i);
+        Brain   *getBrain() const;
 };
 
 #endif

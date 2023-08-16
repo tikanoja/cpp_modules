@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 13:39:06 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/15 13:39:08 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/16 11:50:07 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 Brain::Brain(void){
     std::cout << "Brain constructor called" << std::endl;
+    char c = 'a';
     for (int i = 0; i < 100; i++){
-        this->ideas[i] = "idea number " + std::to_string(i);
+        this->ideas[i] = c;
+        c++;
+        if (c == '{')
+            c = 'a';
     }
     return ;
 }
