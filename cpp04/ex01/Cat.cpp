@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:26 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/15 21:23:03 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/16 11:55:49 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,8 @@ void Cat::makeSound(void) const{
 
 std::string Cat::getIdea(int i){
     return (this->catbrain->returnIdea(i));
+}
+
+Brain   *Cat::getBrain() const{
+    return (this->catbrain);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:41 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/15 21:34:57 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/16 12:00:28 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,8 @@ void Dog::makeSound(void) const{
 
 std::string Dog::getIdea(int i){
     return (this->dogbrain->returnIdea(i));
+}
+
+Brain   *Dog::getBrain() const{
+    return (this->dogbrain);
 }

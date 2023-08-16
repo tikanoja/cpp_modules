@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:26:48 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/04 10:26:49 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:00:00 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Dog : public Animal{
         ~Dog(void);
         void virtual makeSound() const;
         std::string getIdea(int i);
+        Brain   *getBrain() const;
 };
 
 #endif

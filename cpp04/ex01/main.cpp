@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 10:27:31 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/15 21:37:36 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/16 11:59:03 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-    //tee animal array
+    // tee animal array
     Animal* myPets[10];
     //tayta puolet kiisu ja koira
     for (int i = 0; i < 10; i++){
@@ -31,23 +31,28 @@ int main()
         myPets[i]->makeSound();
     }
     std::cout << std::endl;
-    // for (int i = 0; i < 100; i++){
-    //     std::cout << myPets[1]->getIdea(i) << std::endl;
-    // }
-    // std::cout << std::endl;
+    for (int i = 0; i < 100; i++){
+        std::cout << myPets[1]->getIdea(i) << std::endl;
+    }
+    std::cout << std::endl;
     //delete elaimet
     for (int i = 0; i < 10; i++){
         delete myPets[i];
     }
+    std::cout << std::endl;
 
-    // //shallow/deep test
-    // Cat original;
+    //shallow/deep test
+    Cat original;
+    {
+        std::cout << "Address of Catbrain:" << original.getBrain() << std::endl;
+        Cat copy = original;
+        std::cout << "Address of Catbrain after copy:" << copy.getBrain() << std::endl;
+    }
     // {
-    //     Cat copy = original;
+    //     std::cout << "Address of Catbrain:" << original.getBrain() << std::endl;
+    //     Cat anotherCopy(original);
+    //     std::cout << "Address of Catbrain after copy:" << anotherCopy.getBrain() << std::endl;
     // }
-    // // {
-    // //     Cat anotherCopy(original);
-    // // }
-    // std::cout << "copy now out of scope" << std::endl;
+    std::cout << "copy now out of scope" << std::endl;
     return 0;
 }
