@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:23 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/16 22:08:35 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/16 22:22:07 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,10 @@ int Bureaucrat::getGrade(void) const {
 
 void Bureaucrat::increaseGrade(void) {
     try {
-        if (this->grade > 1)
+        if (this->grade > 1) {
             this->grade--;
+            std::cout << this->getName() << " has been promoted to grade " << this->getGrade() << "!" << std::endl;
+        }
         else
             throw Bureaucrat::GradeTooHighException();
     } catch (std::exception& e) {
@@ -78,8 +80,10 @@ void Bureaucrat::increaseGrade(void) {
 
 void Bureaucrat::decreaseGrade(void) {
     try {
-        if (this->grade < 150)
+        if (this->grade < 150) {
             this->grade++;
+            std::cout << this->getName() << " has been demoted to grade " << this->getGrade() << "..." << std::endl;
+        }
         else
             throw Bureaucrat::GradeTooLowException();
     } catch (std::exception& e) {
