@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:15 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/16 14:10:37 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/16 21:36:01 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 class Bureaucrat {
 	private:
@@ -31,8 +32,17 @@ class Bureaucrat {
 		int getGrade(void) const;
 		void increaseGrade(void);
 		void decreaseGrade(void);
-		int GradeTooHighException();
-		int GradeTooLowException();
+
+		class GradeTooHighException : public std::exception {
+			public:
+				const char* what() const throw(); //pitaa ehk olla virtual?
+		};
+		
+		class GradeTooLowException : public std::exception {
+			public:
+				const char* what() const throw(); //pitaa ehk olla virtual?
+		};
+
 };
 
 std::ostream& operator<<(std::ostream &output, const Bureaucrat &b);
