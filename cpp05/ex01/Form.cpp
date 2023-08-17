@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/17 13:40:05 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:10:19 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,45 @@ Form::Form(const Form &copy) \
 Form& Form::operator=(const Form &copy) {
 	std::cout << "Form copy assignment constructor called" << std::endl;
 	if (this != &copy){
-		//do sth
+		this->signature = copy.signature;
 	}
-	return ;
+	return (*this);
 }
 
 Form::~Form(void) {
 	std::cout << "Form destructor called" << std::endl;
 	return ;
+}
+
+const char* Form::GradeTooHighException::what() const throw() {
+	return ("Grade too high!\0");
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+	return ("Grade too low!\0");
+}
+
+std::string Form::getName(void) const {
+	return (this->name);
+}
+
+int Form::getSignGrade() const {
+	return (this->signGrade);
+}
+
+int Form::getExecGrade() const {
+	return (this->execGrade);
+}
+
+bool Form::getSignature() const {
+	return (this->signature);
+}
+
+void Form::beSigned(Bureaucrat b) {
+	return ;
+}
+
+std::ostream& operator<<(std::ostream &output, const Form &f) {
+	output << "form name: " << f.getName() << ", sign grade: " << f.getSignGrade() << ", exec grade: " << f.getExecGrade() << ", signature: " << f.getSignature();
+	return (output);
 }
