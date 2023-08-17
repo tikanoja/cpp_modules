@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:23 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/16 22:22:07 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/17 09:51:09 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat(std::string const newName, int newGrade) : name(newName) 
         if (newGrade < 1)
             throw Bureaucrat::GradeTooHighException();
         else if (newGrade > 150)
-            throw Bureaucrat::GradeTooHighException();
+            throw Bureaucrat::GradeTooLowException();
         this->grade = newGrade;
     } catch (std::exception& e) {
         std::cout << "Caught an error in constructor: " << e.what() << std::endl;
@@ -34,22 +34,19 @@ Bureaucrat::Bureaucrat(std::string const newName, int newGrade) : name(newName) 
     return ;
 }
 
-// ei voi assign ku on const member ?
-// Bureaucrat::Bureaucrat(const Bureaucrat &copy){
-//     std::cout << "Bureaucrat copy constructor called" << std::endl;
-//     *this = copy;
-//     return ;
-// }
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.getName()) {
+    std::cout << "Bureaucrat copy constructor called" << std::endl;
+    *this = copy;
+    return ;
+}
 
-//ei voi assign ku on const member ?
-// Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy){
-//     std::cout << "Bureaucrat copy assignment constructor called" << std::endl;
-//     if (this != &copy){
-//         this->name = copy.getName();
-//         this->grade = copy.getGrade();
-//     }
-//     return (*this);
-// }
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy) {
+    std::cout << "Bureaucrat copy assignment constructor called" << std::endl;
+    if (this != &copy){
+        this->grade = copy.getGrade();
+    }
+    return (*this);
+}
 
 Bureaucrat::~Bureaucrat(void) {
     std::cout << "Bureaucrat destructor called" << std::endl;
