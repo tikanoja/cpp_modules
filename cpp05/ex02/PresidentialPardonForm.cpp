@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:45:51 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 16:01:22 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 16:09:06 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 void PresidentialPardonForm::execute(Bureaucrat const& executor) {
 	if (!AForm::execChecker(executor))
 		std::cout << this->target << " has been pardoned by Zaphod Beeblebrox!" << std::endl;
+	else
+		std::cout << this->target << " has not been pardoned by our beloved president... Sentence: DEATH!" << std::endl;
 	return ;
 }
