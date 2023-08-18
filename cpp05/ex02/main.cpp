@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 14:23:09 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 16:04:08 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 #include "PresidentialPardonForm.hpp"
 
 int main(void) {
-	
-	
+	Bureaucrat b("Jimbo", 6);
+	PresidentialPardonForm ppf("Jeesus");
+	b.signForm(ppf);
+	ppf.execute(b);
 	return 0;
 }

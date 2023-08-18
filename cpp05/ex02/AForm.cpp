@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 14:22:28 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 16:06:04 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ const char* AForm::GradeTooLowException::what() const throw() {
 	return ("Grade too low!\0");
 }
 
+const char* AForm::MissingSignature::what() const throw() {
+	return ("Missing signature!\0");
+}
+
 std::string AForm::getName(void) const {
 	return (this->name);
 }
@@ -90,6 +94,19 @@ void AForm::beSigned(Bureaucrat& b) {
 		std::cout << "Caught an error in beSigned(): " << e.what() << std::endl;
 	}
 	return ;
+}
+
+int AForm::execChecker(Bureaucrat const& executor) {
+	try {
+		if (this->getSignature() == 0)
+			throw AForm::MissingSignature();
+		else if (executor.getGrade() > this->getExecGrade() || executor.getGrade() > this->getSignGrade())
+			throw AForm::GradeTooLowException();
+		return (0);
+	} catch (std::exception& e) {
+		std::cout << "Caught an error in execChecker(): " << e.what() << std::endl;
+		return (1);
+	}
 }
 
 std::ostream& operator<<(std::ostream &output, const AForm &f) {

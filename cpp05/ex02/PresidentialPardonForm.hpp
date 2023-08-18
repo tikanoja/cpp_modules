@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:45:57 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 14:20:07 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:32:22 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class PresidentialPardonForm : public AForm {
 		PresidentialPardonForm(const PresidentialPardonForm& copy);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& copy);
 		~PresidentialPardonForm(void);
+
+		void execute(Bureaucrat const& executor);
 };
 
 #endif
