@@ -6,14 +6,32 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/17 17:10:19 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 11:06:20 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
+int Form::assignGrade(int grade) {
+	try {
+		if (grade >= 1 && grade <= 150)
+			return (grade);
+		else if (grade < 1)
+			throw Form::GradeTooHighException();
+		throw Form::GradeTooLowException();
+	} catch (std::exception& e) {
+		std::cout << "Caught an error in form constructor: " << e.what() << std::endl;
+		if (grade < 1) {
+			std::cout << "Substituting grade " << grade << " with 1." << std::endl;
+			return (1);
+		}
+		std::cout << "Substituting grade " << grade << " with 150." << std::endl;
+		return (150);
+	}
+}
+
 Form::Form(std::string const newName, int const newSignGrade, int const newExecGrade) \
-	: name(newName), signGrade(newSignGrade), execGrade(newExecGrade), signature(0) {
+	: name(newName), signGrade(Form::assignGrade(newSignGrade)), execGrade(Form::assignGrade(newExecGrade)), signature(0) {
 	std::cout << "Form constructor called" << std::endl;
 	return ;
 }
@@ -62,7 +80,15 @@ bool Form::getSignature() const {
 	return (this->signature);
 }
 
-void Form::beSigned(Bureaucrat b) {
+void Form::beSigned(Bureaucrat& b) {
+	try {
+		if (b.getGrade() <= this->getSignGrade())
+			this->signature = 1;
+		else
+			throw Form::GradeTooLowException();
+	} catch (std::exception& e) {
+		std::cout << "Caught an error in beSigned(): " << e.what() << std::endl;
+	}
 	return ;
 }
 

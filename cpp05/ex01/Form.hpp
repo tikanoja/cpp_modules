@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:08 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/17 17:09:37 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 10:57:43 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define FORM_HPP
 
 #include "Bureaucrat.hpp"
+
+//onks forward declaration ok ?
+class Bureaucrat;
 
 class Form {
 	private:
@@ -32,9 +35,9 @@ class Form {
 		int getSignGrade(void) const;
 		int getExecGrade(void) const;
 		bool getSignature(void) const;
+		int assignGrade(int grade);
 
-
-		void beSigned(Bureaucrat b);
+		void beSigned(Bureaucrat& b);
 		
 		class GradeTooHighException : public std::exception {
 			public:

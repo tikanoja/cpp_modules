@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:23 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/17 10:12:17 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 10:41:59 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat(std::string const newName, int newGrade) : name(newName) 
 			throw Bureaucrat::GradeTooLowException();
 		this->grade = newGrade;
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in constructor: " << e.what() << std::endl;
+		std::cout << "Caught an error in Bureaucrat constructor: " << e.what() << std::endl;
 		std::cout << "Substituting grade " << newGrade << " with the closest value in range: ";
 		if (newGrade < 1) {
 			std::cout << "1." << std::endl;
@@ -85,6 +85,20 @@ void Bureaucrat::decreaseGrade(void) {
 			throw Bureaucrat::GradeTooLowException();
 	} catch (std::exception& e) {
 		std::cout << "Caught an error decreasing grade: " << e.what() <<  std::endl;
+	}
+	return ;
+}
+
+void Bureaucrat::signForm(Form &f) {
+	try {
+		if (this->getGrade() <= f.getSignGrade()) {
+			f.beSigned(*this);
+			std::cout << this->getName() << " signed form " << f.getName() << " !" << std::endl;
+		}
+		else
+			throw Form::GradeTooLowException();
+	} catch (std::exception& e) {
+		std::cout << "Caught an error in signForm(): " << this->getName() << " couldn't sign " << f.getName() << "... " << e.what() << std::endl;
 	}
 	return ;
 }
