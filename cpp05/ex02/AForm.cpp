@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 11:42:08 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:02:50 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,5 @@ std::ostream& operator<<(std::ostream &output, const Form &f) {
 	output << "form name: " << f.getName() << ", sign grade: " << f.getSignGrade() << ", exec grade: " << f.getExecGrade() << ", signature: " << f.getSignature();
 	return (output);
 }
+
+//lisaa base class execute() ?
