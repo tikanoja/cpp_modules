@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:15 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 10:29:39 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 14:17:39 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include <string>
 #include <stdexcept>
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 //onks forward declaration ok ?
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -37,7 +37,7 @@ class Bureaucrat {
 		int getGrade(void) const;
 		void increaseGrade(void);
 		void decreaseGrade(void);
-		void signForm(Form &f);
+		void signForm(AForm &f);
 
 		class GradeTooHighException : public std::exception {
 			public:

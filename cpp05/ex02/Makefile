@@ -6,13 +6,13 @@
 #    By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 13:53:37 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/08/18 12:01:07 by ttikanoj         ###   ########.fr        #
+#    Updated: 2023/08/18 14:22:29 by ttikanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp \
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp \
 	RobotomyRequestForm.cpp
 
 OBJ = $(SRC:.cpp=.o)

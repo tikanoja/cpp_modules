@@ -6,16 +6,16 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 11:58:09 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 14:19:40 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form {
+class RobotomyRequestForm : public AForm {
 	
 };
 

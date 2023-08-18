@@ -6,16 +6,16 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:10 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 11:58:51 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/18 14:19:30 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
 	
 };
 
