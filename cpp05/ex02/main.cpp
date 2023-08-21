@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 12:26:38 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/21 17:43:33 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+
+//lisaa ehka default void constructor???
 
 int main(void) {
 	std::cout << "***** Bureaucrat with negative grade *****" << std::endl;
