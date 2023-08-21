@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:45:51 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:12:50 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/21 12:25:24 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const newTarget) : AF
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy) : AForm("PresidentialPardonForm", 25, 5), target(copy.target) {
 	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
+	this->setSignature(copy.getSignature());
 	return ;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& copy) {
 	std::cout << "PresidentialPardonForm copy assignment constructor called" << std::endl;
 	if (this != &copy)
-		this->target = copy.target;
+		this->setSignature(copy.getSignature());
 	return (*this);
 }
 

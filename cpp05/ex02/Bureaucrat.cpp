@@ -6,14 +6,14 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:23 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:15:25 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/21 11:42:01 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string const newName, int newGrade) : name(newName) {
-	std::cout << "Bureaucrat constructor called for officer " << newName << ", grade " << newGrade << std::endl;
+	std::cout << "Bureaucrat constructor called for " << newName << ", grade " << newGrade << std::endl;
 	try {
 		if (newGrade < 1)
 			throw Bureaucrat::GradeTooHighException();
@@ -49,7 +49,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy) {
 }
 
 Bureaucrat::~Bureaucrat(void) {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat destructor called for " << this->getName() << std::endl;
 	return ;
 }
 
@@ -105,7 +105,7 @@ void Bureaucrat::signForm(AForm &f) {
 
 void Bureaucrat::executeForm(AForm const& form) {
 	if (form.execute(*this) == 1)
-		std::cout << this->getName() << " failed to execute form " << form.getName() << std::endl;
+		std::cout << this->getName() << " failed to execute form " << form.getName() << "..." << std::endl;
 	else
 		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	return ;

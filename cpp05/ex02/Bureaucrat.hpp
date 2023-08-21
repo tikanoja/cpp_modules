@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:15 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 10:42:03 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/21 12:09:09 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 #include "AForm.hpp"
 
-//onks forward declaration ok ?
 class AForm;
 
 class Bureaucrat {

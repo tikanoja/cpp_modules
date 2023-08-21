@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:04:15 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/21 12:18:03 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,16 @@ bool AForm::getSignature() const {
 	return (this->signature);
 }
 
+void AForm::setSignature(int i) {
+	this->signature = i;
+}
+
 void AForm::beSigned(Bureaucrat& b) {
 	try {
-		if (b.getGrade() <= this->getSignGrade())
+		if (b.getGrade() <= this->getSignGrade()) {
 			this->signature = 1;
+			std::cout << this->getName() << " got signed by " << b.getName() << "!" << std::endl;
+		}
 		else
 			throw AForm::GradeTooLowException();
 	} catch (std::exception& e) {

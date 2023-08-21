@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:08 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:05:35 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/21 12:17:28 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class AForm {
 		int getSignGrade(void) const;
 		int getExecGrade(void) const;
 		bool getSignature(void) const;
+		void setSignature(int i);
 		int assignGrade(int grade);
 		void beSigned(Bureaucrat& b);
 		int virtual execute(Bureaucrat const& executor) const = 0;
