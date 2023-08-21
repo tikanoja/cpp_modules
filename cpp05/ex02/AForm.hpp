@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:08 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 15:57:29 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/21 11:05:35 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ class AForm {
 		bool getSignature(void) const;
 		int assignGrade(int grade);
 		void beSigned(Bureaucrat& b);
-		void virtual execute(Bureaucrat const& executor) = 0;
-		int execChecker(Bureaucrat const& executor);
+		int virtual execute(Bureaucrat const& executor) const = 0;
+		int execChecker(Bureaucrat const& executor) const;
 
 		class MissingSignature: public std::exception {
 			public:

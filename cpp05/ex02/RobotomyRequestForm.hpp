@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 16:12:37 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/21 11:09:50 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class RobotomyRequestForm : public AForm {
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& copy);
 		~RobotomyRequestForm(void);
 
-		void execute(Bureaucrat const& executor);
+		int execute(Bureaucrat const& executor) const;
 };
 
 #endif

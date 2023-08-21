@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:45:51 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 16:09:06 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/21 11:12:50 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,14 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 	return ;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const& executor) {
-	if (!AForm::execChecker(executor))
+int PresidentialPardonForm::execute(Bureaucrat const& executor) const {
+	if (!AForm::execChecker(executor)) {
 		std::cout << this->target << " has been pardoned by Zaphod Beeblebrox!" << std::endl;
-	else
+		return (0);
+	}
+	else {
 		std::cout << this->target << " has not been pardoned by our beloved president... Sentence: DEATH!" << std::endl;
-	return ;
+		return (1);
+	}
+	return (0);
 }

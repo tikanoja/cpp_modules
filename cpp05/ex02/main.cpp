@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 16:31:38 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/21 11:12:14 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 
 int main(void) {
 	Bureaucrat b("Jimbo", 6);
-	PresidentialPardonForm ppf("Bart");
-	RobotomyRequestForm robo("Homer");
-	b.signForm(robo);
-	robo.execute(b);
+	// PresidentialPardonForm ppf("Bart");
+	// RobotomyRequestForm robo("Homer");
+	// b.signForm(robo);
+	// robo.execute(b);
 
+	ShrubberyCreationForm forest("nice");
+	b.signForm(forest);
+	b.executeForm(forest);
 	return 0;
 }

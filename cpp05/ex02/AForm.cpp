@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 16:06:04 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/21 11:04:15 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void AForm::beSigned(Bureaucrat& b) {
 	return ;
 }
 
-int AForm::execChecker(Bureaucrat const& executor) {
+int AForm::execChecker(Bureaucrat const& executor) const {
 	try {
 		if (this->getSignature() == 0)
 			throw AForm::MissingSignature();
@@ -113,5 +113,3 @@ std::ostream& operator<<(std::ostream &output, const AForm &f) {
 	output << "form name: " << f.getName() << ", sign grade: " << f.getSignGrade() << ", exec grade: " << f.getExecGrade() << ", signature: " << f.getSignature();
 	return (output);
 }
-
-//lisaa base class execute() ?
