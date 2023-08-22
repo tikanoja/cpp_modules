@@ -6,14 +6,19 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:23 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 14:02:15 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:29:59 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat(void) : name("Default"), grade(150) {
+	std::cout << "Bureaucrat(void) constructor called" << std::endl;
+	return ;
+}
+
 Bureaucrat::Bureaucrat(std::string const newName, int newGrade) : name(newName) {
-	std::cout << "Bureaucrat constructor called for officer " << newName << ", grade " << newGrade << std::endl;
+	std::cout << "Bureaucrat constructor called for " << newName << ", grade " << newGrade << std::endl;
 	try {
 		if (newGrade < 1)
 			throw Bureaucrat::GradeTooHighException();
