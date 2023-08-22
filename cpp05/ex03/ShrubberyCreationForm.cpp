@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:07 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 13:21:27 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:10:03 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
 			return (0);
 		}
 		else {
-			std::cout << "Problem growing shrubbery! Please check rights to file." << std::endl;
+			std::cerr << "Problem growing shrubbery! Please check rights to file." << std::endl;
 			return (1);
 		}
 	}
 	else {
-		std::cout << "Failed to grow a beautiful forest!" << std::endl;
+		std::cerr << "Failed to grow a beautiful forest!" << std::endl;
 		return (1);
 	}
 	return (0);

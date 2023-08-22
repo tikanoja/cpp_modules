@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/18 11:06:20 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:03:46 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int Form::assignGrade(int grade) {
 			throw Form::GradeTooHighException();
 		throw Form::GradeTooLowException();
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in form constructor: " << e.what() << std::endl;
+		std::cerr << "Caught an error in form constructor: " << e.what() << std::endl;
 		if (grade < 1) {
 			std::cout << "Substituting grade " << grade << " with 1." << std::endl;
 			return (1);
@@ -87,7 +87,7 @@ void Form::beSigned(Bureaucrat& b) {
 		else
 			throw Form::GradeTooLowException();
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in beSigned(): " << e.what() << std::endl;
+		std::cerr << "Caught an error in beSigned(): " << e.what() << std::endl;
 	}
 	return ;
 }

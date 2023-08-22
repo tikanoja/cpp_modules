@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 13:22:59 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:00:11 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int main(void) {
 	AForm* ptr;
 	std::cout << std::endl;
 
-	ptr = smithers.makeForm("CrEaTiOn", "xmas");
+	ptr = smithers.makeForm("presidential pardon form", "Bart");
+	// ptr = smithers.makeForm("omy request", "Bart");
+	// ptr = smithers.makeForm("CrEaTiOn", "xmas");
 	std::cout << std::endl;
 
 	ptr->beSigned(burns);

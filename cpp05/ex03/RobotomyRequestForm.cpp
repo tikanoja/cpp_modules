@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:01 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 12:57:02 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:09:50 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 		return (0);
 	}
 	else {
-		std::cout << "Robotomy form " << this->target << " has not been passed!" << std::endl;
+		std::cerr << "Robotomy form " << this->target << " has not been passed!" << std::endl;
 		return (1);
 	}
 	return (0);

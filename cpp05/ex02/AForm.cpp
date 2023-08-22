@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 12:18:03 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/22 14:04:47 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int AForm::assignGrade(int grade) {
 			throw AForm::GradeTooHighException();
 		throw AForm::GradeTooLowException();
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in form constructor: " << e.what() << std::endl;
+		std::cerr << "Caught an error in form constructor: " << e.what() << std::endl;
 		if (grade < 1) {
 			std::cout << "Substituting grade " << grade << " with 1." << std::endl;
 			return (1);
@@ -97,7 +97,7 @@ void AForm::beSigned(Bureaucrat& b) {
 		else
 			throw AForm::GradeTooLowException();
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in beSigned(): " << e.what() << std::endl;
+		std::cerr << "Caught an error in beSigned(): " << e.what() << std::endl;
 	}
 	return ;
 }
@@ -110,7 +110,7 @@ int AForm::execChecker(Bureaucrat const& executor) const {
 			throw AForm::GradeTooLowException();
 		return (0);
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in execChecker(): " << e.what() << std::endl;
+		std::cerr << "Caught an error in execChecker(): " << e.what() << std::endl;
 		return (1);
 	}
 }

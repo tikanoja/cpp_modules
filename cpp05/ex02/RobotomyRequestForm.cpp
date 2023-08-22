@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:01 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:56:35 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/22 14:07:00 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 		return (0);
 	}
 	else {
-		std::cout << "Robotomy form " << this->target << " has not been passed!" << std::endl;
+		std::cerr << "Robotomy form " << this->target << " has not been passed!" << std::endl;
 		return (1);
 	}
 	return (0);

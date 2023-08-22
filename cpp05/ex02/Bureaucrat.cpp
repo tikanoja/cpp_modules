@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:23 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:42:01 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/22 14:06:34 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat(std::string const newName, int newGrade) : name(newName) 
 			throw Bureaucrat::GradeTooLowException();
 		this->grade = newGrade;
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in Bureaucrat constructor: " << e.what() << std::endl;
+		std::cerr << "Caught an error in Bureaucrat constructor: " << e.what() << std::endl;
 		std::cout << "Substituting grade " << newGrade << " with the closest value in range: ";
 		if (newGrade < 1) {
 			std::cout << "1." << std::endl;
@@ -70,7 +70,7 @@ void Bureaucrat::increaseGrade(void) {
 		else
 			throw Bureaucrat::GradeTooHighException();
 	} catch (std::exception& e) {
-		std::cout << "Caught an error increasing grade: " << e.what() <<  std::endl;
+		std::cerr << "Caught an error increasing grade: " << e.what() <<  std::endl;
 	}
 	return ;
 }
@@ -84,7 +84,7 @@ void Bureaucrat::decreaseGrade(void) {
 		else
 			throw Bureaucrat::GradeTooLowException();
 	} catch (std::exception& e) {
-		std::cout << "Caught an error decreasing grade: " << e.what() <<  std::endl;
+		std::cerr << "Caught an error decreasing grade: " << e.what() <<  std::endl;
 	}
 	return ;
 }
@@ -98,14 +98,14 @@ void Bureaucrat::signForm(AForm &f) {
 		else
 			throw AForm::GradeTooLowException();
 	} catch (std::exception& e) {
-		std::cout << "Caught an error in signForm(): " << this->getName() << " couldn't sign " << f.getName() << "... " << e.what() << std::endl;
+		std::cerr << "Caught an error in signForm(): " << this->getName() << " couldn't sign " << f.getName() << "... " << e.what() << std::endl;
 	}
 	return ;
 }
 
 void Bureaucrat::executeForm(AForm const& form) {
 	if (form.execute(*this) == 1)
-		std::cout << this->getName() << " failed to execute form " << form.getName() << "..." << std::endl;
+		std::cerr << this->getName() << " failed to execute form " << form.getName() << "..." << std::endl;
 	else
 		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	return ;
