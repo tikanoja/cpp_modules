@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/22 10:38:36 by ttikanoj          #+#    #+#             */
+/*   Updated: 2023/08/22 10:38:40 by ttikanoj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 
 Intern::Intern(void) {
@@ -23,29 +35,31 @@ Intern::~Intern(void) {
 }
 
 AForm* Intern::makeForm(std::string formName, std::string targetName) {
-	AForm* ptr = NULL;
-	std::string shrub = "shrubbery creation form";
-	std::string robo = "robotomy request form";
-	std::string pres = "presidential pardon form";
-
+	//tsekkaa params
+	if (formName.empty() || targetName.empty()) {
+		std::cerr << "The intern is visibly nervous... Empty inputs are too much pressure for them!" << std::endl;
+	}
 	if (formName.length() <= 7) {
-		std::cout << "The intern seems confused about the form, please be patient and a bit more specific with the form name..." << std::endl;
+		std::cerr << "The intern seems confused about the form, please be patient and a bit more specific with the form name..." << std::endl;
 	}
-	else if (targetName.length() < 1) {
-
-	}
-
 	for (int i = 0; formName[i]; i++) {
 		formName[i] = tolower(formName[i]);
 	}
 
-	if (shrub.find(formName) != std::string::npos)
-		std::cout << "shrub" << std::endl;
-	else if (robo.find(formName) != std::string::npos)
-		std::cout << "robo" << std::endl;
-	else if (pres.find(formName) != std::string::npos)
-		std::cout << "pres" << std::endl;
+	AForm* ptr = nullptr;
+	std::string formArr[3] = {"shrubbery creation form", "robotomy request form", "presidential pardon form"};
+	AForm (*formPtrs[3]) = {&ShrubberyCreationForm(targetName), &RobotomyRequestForm(targetName), &PresidentialPardonForm(targetName)};
 
-	(void)targetName;
+	for (int index = 0; index < 3; index++){
+		if (formArr[index].find(formName) != std::string::npos)
+		{
+			std::cout << "Intern creates form " << formArr[index] << "!" << std::endl;
+			//tas kohtaa on loytyny oikee index ja tee form ja palauta ptr siihe
+			// return (new ((*formPtrs[index])()));
+			AForm object = new (*formPtrs[index]());
+		}
+	}
+
+	std::cerr << "The intern was unable to fetch the form you asked for..." << std::endl;
 	return (ptr);
 }
