@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:08 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 13:10:36 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:00:35 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class AForm {
 		bool signature;
 		
 	public:
+		AForm(void);
 		AForm(std::string const newName, int const newSignGrade, int const newExecGrade);
 		AForm(const AForm& copy);
 		AForm& operator=(const AForm& copy);

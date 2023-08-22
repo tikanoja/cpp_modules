@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:10 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:09:56 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/22 15:09:55 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class ShrubberyCreationForm : public AForm {
         std::string target;
 
 	public:
+		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string const newTarget);
 		ShrubberyCreationForm(const ShrubberyCreationForm& copy);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& copy);
