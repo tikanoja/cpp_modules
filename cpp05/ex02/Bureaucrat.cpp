@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:23 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 14:06:34 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:52:55 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ Bureaucrat::Bureaucrat(std::string const newName, int newGrade) : name(newName) 
 			this->grade = 150;
 		}
 	}
+	return ;
+}
+
+Bureaucrat::Bureaucrat(void) : name("Default"), grade(150) {
+	std::cout << "Bureaucrat(void) constructor called" << std::endl;
 	return ;
 }
 

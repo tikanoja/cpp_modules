@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:45:51 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 12:25:24 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/22 14:54:38 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5), target("Default") {
+	std::cout << "PresidentialPardonForm constructor called" << std::endl;
+	return ;
+}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const newTarget) : AForm("PresidentialPardonForm", 25, 5), target(newTarget) {
 	std::cout << "PresidentialPardonForm constructor called" << std::endl;
