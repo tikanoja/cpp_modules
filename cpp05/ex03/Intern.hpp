@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:38:49 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 10:38:53 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:45:09 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 #include "PresidentialPardonForm.hpp"
 
 class Intern {
+	private:
+		AForm* makeShrub(std::string targetName);
+		AForm* makeRobo(std::string targetName);
+		AForm* makePres(std::string targetName);
+
 	public:
 		Intern(void);
 		Intern(const Intern& copy);

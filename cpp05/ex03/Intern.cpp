@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:38:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 10:38:40 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:13:34 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,18 @@ Intern::~Intern(void) {
 	return ;
 }
 
+AForm* Intern::makeShrub(std::string targetName) {
+	return (new ShrubberyCreationForm(targetName));
+}
+
+AForm* Intern::makeRobo(std::string targetName) {
+	return (new RobotomyRequestForm(targetName));
+}
+
+AForm* Intern::makePres(std::string targetName) {
+	return (new PresidentialPardonForm(targetName));
+}
+
 AForm* Intern::makeForm(std::string formName, std::string targetName) {
 	//tsekkaa params
 	if (formName.empty() || targetName.empty()) {
@@ -48,7 +60,7 @@ AForm* Intern::makeForm(std::string formName, std::string targetName) {
 
 	AForm* ptr = nullptr;
 	std::string formArr[3] = {"shrubbery creation form", "robotomy request form", "presidential pardon form"};
-	AForm (*formPtrs[3]) = {&ShrubberyCreationForm(targetName), &RobotomyRequestForm(targetName), &PresidentialPardonForm(targetName)};
+	AForm* (Intern::*formPtrs[3])(std::string) = {&Intern::makeShrub, &Intern::makeRobo, &Intern::makePres};
 
 	for (int index = 0; index < 3; index++){
 		if (formArr[index].find(formName) != std::string::npos)
@@ -56,7 +68,8 @@ AForm* Intern::makeForm(std::string formName, std::string targetName) {
 			std::cout << "Intern creates form " << formArr[index] << "!" << std::endl;
 			//tas kohtaa on loytyny oikee index ja tee form ja palauta ptr siihe
 			// return (new ((*formPtrs[index])()));
-			AForm object = new (*formPtrs[index]());
+			//AForm object = new (*formPtrs[index]());
+			return ((this->*formPtrs[index])(targetName));
 		}
 	}
 
