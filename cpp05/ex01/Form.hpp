@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:08 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 14:36:27 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:13:02 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include "Bureaucrat.hpp"
 
-//onks forward declaration ok ?
 class Bureaucrat;
 
 class Form {

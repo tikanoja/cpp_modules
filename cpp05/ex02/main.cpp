@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 14:59:25 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:14:32 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ int main(void) {
 	johnson.executeForm(ppf);
 	std::cout << std::endl;
 	
-	std::cout << "***** Bureaucrat copying *****" << std::endl; //deep / shallow ?????
+	std::cout << "***** Bureaucrat copying *****" << std::endl;
 	Bureaucrat doppelganger(mark);
 	std::cout << doppelganger << std::endl;
 	doppelganger = johnson;
 	std::cout << doppelganger << std::endl;
 	std::cout << std::endl;
 	
-	std::cout << "***** Form copying *****" << std::endl;  //deep / shallow ?????
+	std::cout << "***** Form copying *****" << std::endl;
 	PresidentialPardonForm duplicate(ppf);
 	std::cout << duplicate << std::endl;
 	duplicate = ppf;

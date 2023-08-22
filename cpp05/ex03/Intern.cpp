@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:38:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 12:51:29 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:16:37 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ AForm* Intern::makePres(std::string targetName) {
 }
 
 AForm* Intern::makeForm(std::string formName, std::string targetName) {
-	//tsekkaa params ja throw errors
 	if (formName.empty() || targetName.empty()) {
 		std::cerr << "The intern is visibly nervous... Empty inputs are too much pressure for them!" << std::endl;
 	}
