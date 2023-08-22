@@ -6,14 +6,14 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:07 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 14:56:44 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:03:40 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137), target("Default") {
-	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm(void) constructor called" << std::endl;
 	return ;
 }
 
