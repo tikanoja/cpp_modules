@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 14:03:46 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:38:52 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int Form::assignGrade(int grade) {
 		std::cout << "Substituting grade " << grade << " with 150." << std::endl;
 		return (150);
 	}
+}
+
+Form::Form(void) : name("Default"), signGrade(150), execGrade(150), signature(0) {
+	std::cout << "Form(void) constructor called" << std::endl;
+	return ;
 }
 
 Form::Form(std::string const newName, int const newSignGrade, int const newExecGrade) \
