@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:38:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 11:13:34 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:51:29 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ AForm* Intern::makePres(std::string targetName) {
 }
 
 AForm* Intern::makeForm(std::string formName, std::string targetName) {
-	//tsekkaa params
+	//tsekkaa params ja throw errors
 	if (formName.empty() || targetName.empty()) {
 		std::cerr << "The intern is visibly nervous... Empty inputs are too much pressure for them!" << std::endl;
 	}
@@ -66,9 +66,6 @@ AForm* Intern::makeForm(std::string formName, std::string targetName) {
 		if (formArr[index].find(formName) != std::string::npos)
 		{
 			std::cout << "Intern creates form " << formArr[index] << "!" << std::endl;
-			//tas kohtaa on loytyny oikee index ja tee form ja palauta ptr siihe
-			// return (new ((*formPtrs[index])()));
-			//AForm object = new (*formPtrs[index]());
 			return ((this->*formPtrs[index])(targetName));
 		}
 	}

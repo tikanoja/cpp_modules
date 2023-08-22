@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 09:37:21 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:22:59 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,25 @@
 #include "Intern.hpp"
 
 int main(void) {
-	Intern unnamed;
-	unnamed.makeForm("on form", "");
+	Intern smithers;
+	std::cout << std::endl;
+
+	Bureaucrat burns("Burns", 1);
+	std::cout << std::endl;
+
+	AForm* ptr;
+	std::cout << std::endl;
+
+	ptr = smithers.makeForm("CrEaTiOn", "xmas");
+	std::cout << std::endl;
+
+	ptr->beSigned(burns);
+	std::cout << std::endl;
+
+	ptr->execute(burns);
+	std::cout << std::endl;
+
+	delete ptr;
+	std::cout << std::endl;
 	return 0;
 }

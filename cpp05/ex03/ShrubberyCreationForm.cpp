@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:07 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 11:12:37 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/22 13:21:27 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
 	if (!AForm::execChecker(executor)) {
 		std::ofstream outFile(this->target + "_shrubbery");
 		if (outFile.is_open()) {
-			outFile << "   ^      ^      ^    " << std::endl;
+			outFile << "   *      *      *    " << std::endl;
 			outFile << "  /^\\    /^\\    /^\\  " << std::endl;
 			outFile << " /^^^\\  /^^^\\  /^^^\\ " << std::endl;
 			outFile << "/^^^^^\\/^^^^^\\/^^^^^\\" << std::endl;
 			outFile << "   |      |      |    " << std::endl;
 			outFile.close();
-			std::cout << "Shrubbery creation successful! Check it out at ./" << this->target + "_shrubbery" << std::endl;
+			std::cout << "Ho ho ho! Xmas came early this year! Check it out at ./" << this->target + "_shrubbery" << std::endl;
 			return (0);
 		}
 		else {

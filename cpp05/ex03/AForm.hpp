@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 09:54:08 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/21 12:17:28 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/22 13:10:36 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class AForm {
 		AForm(std::string const newName, int const newSignGrade, int const newExecGrade);
 		AForm(const AForm& copy);
 		AForm& operator=(const AForm& copy);
-		~AForm(void);
+		virtual ~AForm(void);
 
 		std::string getName(void) const;
 		int getSignGrade(void) const;
