@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 11:46:01 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 15:03:33 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:31:33 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void) {
 int RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 	if (!AForm::execChecker(executor)) {
 		std::cout << "*Vrrrrrrrrzzzbzzrrrrrrrr...!* ";
-		std::srand((std::time(nullptr)));
+		std::srand((std::time(NULL)));
 		if (std::rand() % 2)
 			std::cout << this->target << " has been robotomized successfully! Beep boop!" << std::endl;
 		else
