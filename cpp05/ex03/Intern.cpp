@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:38:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/23 09:46:19 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/23 16:23:25 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int Intern::argChecker(std::string formName, std::string targetName) {
 
 AForm* Intern::makeForm(std::string formName, std::string targetName) {
 	if (Intern::argChecker(formName, targetName))
-		return (nullptr);
+		return (NULL);
 
 	for (int i = 0; formName[i]; i++) {
 		formName[i] = tolower(formName[i]);
@@ -97,5 +97,5 @@ AForm* Intern::makeForm(std::string formName, std::string targetName) {
 	} catch (std::exception& e) {
 		std::cerr << "Caught an error in makeForm(): " << e.what() <<  std::endl;
 	}
-	return (nullptr);
+	return (NULL);
 }
