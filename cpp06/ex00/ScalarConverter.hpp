@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/23 18:23:35 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/23 21:17:43 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@
 //"make a static class ????"
 class ScalarConverter {
 	private:
-		int foo; // ota tää helvettii
+		char scChar;
+		int scInt;
+		float scFloat;
+		double scDouble;
+
 	public:
 		ScalarConverter(void);
 		ScalarConverter(const ScalarConverter &copy);

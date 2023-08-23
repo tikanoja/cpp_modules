@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:44:59 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/23 18:23:34 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/23 21:17:52 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ ScalarConverter::ScalarConverter(const ScalarConverter &copy) {
 //muista täyttää tähä oikeet valuet jos tulee jotaa private members
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &copy) {
 	std::cout << "ScalarConverter copy assignment constructor called" << std::endl;
-	if (this != &copy)
-		this->foo = copy.foo;
+	if (this != &copy) {
+		this->scChar = copy.scChar;
+		this->scInt = copy.scInt;
+		this->scFloat = copy.scFloat;
+		this->scDouble = copy.scDouble;
+	}
 	return (*this);
 }
 
@@ -56,6 +60,3 @@ void ScalarConverter::convert(std::string str) { //do the magic
 	//print 'em
 	return ;
 }
-
-// For each exercise, the type conversion must be solved using one specific type of casting.
-// Your choice will be checked during defense.
