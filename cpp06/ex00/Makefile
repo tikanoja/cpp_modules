@@ -6,11 +6,11 @@
 #    By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 13:53:37 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/08/23 15:45:19 by ttikanoj         ###   ########.fr        #
+#    Updated: 2023/08/23 16:45:34 by ttikanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scalar_converter
+NAME = convert
 
 SRC = main.cpp ScalarConverter.cpp
 

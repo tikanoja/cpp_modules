@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:44:59 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/23 15:45:23 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:23:34 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,27 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter &copy) {
 
 ScalarConverter::~ScalarConverter(void) {
 	std::cout << "ScalarConverter destructor called" << std::endl;
+	return ;
+}
+
+void ScalarConverter::detectType(std::string str) { //mita me saimme?
+	
+	return ;
+}
+
+int ScalarConverter::inputValidation(std::string str) { //tsekkaa onko valid input
+	std::cout << str << std::endl;
+
+	return ;
+}
+
+void ScalarConverter::convert(std::string str) { //do the magic
+	std::cout << str << std::endl;
+	//input validation() (onko whitespace, ???)
+	//detect type()
+	//convert from string to actual type
+	//convert to the other three types (CHAR, INT, FLOAT, DOUBLE)
+	//print 'em
 	return ;
 }
 
