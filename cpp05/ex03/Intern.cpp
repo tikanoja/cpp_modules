@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:38:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 15:16:37 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/23 09:46:19 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,41 @@ AForm* Intern::makePres(std::string targetName) {
 	return (new PresidentialPardonForm(targetName));
 }
 
+const char* Intern::noMatchException::what() const throw() {
+	return ("The intern was unable to fetch the form you asked for...\0");
+}
+
+const char* Intern::shortFormNameException::what() const throw() {
+	return ("The intern seems confused about the form, please be patient and provide >7 len form name.\0");
+}
+
+const char* Intern::emptyInputException::what() const throw() {
+	return ("The intern is visibly nervous... Empty inputs are too much pressure for them!\0");
+}
+
+int Intern::argChecker(std::string formName, std::string targetName) {
+	try {
+		if (formName.empty() || targetName.empty()) {
+			throw Intern::emptyInputException();
+		}
+		else if (formName.length() <= 7) {
+			throw Intern::shortFormNameException();
+		}
+	} catch (std::exception& e) {
+		std::cerr << "Caught an error in argChecker(): " << e.what() <<  std::endl;
+		return (1);
+	}
+	return (0);
+}
+
 AForm* Intern::makeForm(std::string formName, std::string targetName) {
-	if (formName.empty() || targetName.empty()) {
-		std::cerr << "The intern is visibly nervous... Empty inputs are too much pressure for them!" << std::endl;
-	}
-	if (formName.length() <= 7) {
-		std::cerr << "The intern seems confused about the form, please be patient and a bit more specific with the form name..." << std::endl;
-	}
+	if (Intern::argChecker(formName, targetName))
+		return (nullptr);
+
 	for (int i = 0; formName[i]; i++) {
 		formName[i] = tolower(formName[i]);
 	}
 
-	AForm* ptr = nullptr;
 	std::string formArr[3] = {"shrubbery creation form", "robotomy request form", "presidential pardon form"};
 	AForm* (Intern::*formPtrs[3])(std::string) = {&Intern::makeShrub, &Intern::makeRobo, &Intern::makePres};
 
@@ -68,7 +91,11 @@ AForm* Intern::makeForm(std::string formName, std::string targetName) {
 			return ((this->*formPtrs[index])(targetName));
 		}
 	}
-
-	std::cerr << "The intern was unable to fetch the form you asked for..." << std::endl;
-	return (ptr);
+	
+	try {
+		throw Intern::noMatchException();
+	} catch (std::exception& e) {
+		std::cerr << "Caught an error in makeForm(): " << e.what() <<  std::endl;
+	}
+	return (nullptr);
 }

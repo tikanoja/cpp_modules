@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:38:49 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 10:45:09 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/23 09:32:59 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Intern {
 		AForm* makeShrub(std::string targetName);
 		AForm* makeRobo(std::string targetName);
 		AForm* makePres(std::string targetName);
+		int argChecker(std::string formName, std::string targetName);
 
 	public:
 		Intern(void);
@@ -31,6 +32,21 @@ class Intern {
 		~Intern(void);
 
 		AForm* makeForm(std::string formName, std::string targetName);
+
+		class noMatchException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+
+		class shortFormNameException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+
+		class emptyInputException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif

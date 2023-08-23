@@ -3,18 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:22:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/22 14:00:11 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/23 09:52:41 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
 int main(void) {
@@ -27,9 +22,9 @@ int main(void) {
 	AForm* ptr;
 	std::cout << std::endl;
 
-	ptr = smithers.makeForm("presidential pardon form", "Bart");
+	// ptr = smithers.makeForm("presidential pardon form", "Bart");
 	// ptr = smithers.makeForm("omy request", "Bart");
-	// ptr = smithers.makeForm("CrEaTiOn", "xmas");
+	ptr = smithers.makeForm("CrEaTiOn", "xmas");
 	std::cout << std::endl;
 
 	ptr->beSigned(burns);
