@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 15:45:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/23 15:46:39 by ttikanoj         ###   ########.fr       */
+/*   Created: 2023/08/23 15:43:55 by ttikanoj          #+#    #+#             */
+/*   Updated: 2023/08/23 15:48:38 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#include "ScalarConverter.hpp"
 
-#include <iostream>
-#include <string>
+int main(int ac, char **av) {
+	if (ac != 2) {
+		std::cerr << "Please provide 1 (one) argument" << std::endl;
+		return (1);
+	}
 
-//"make a static class ????"
-class ScalarConverter {
-	private:
-		int foo; // ota tää helvettii
-	public:
-		ScalarConverter(void);
-		ScalarConverter(const ScalarConverter &copy);
-		ScalarConverter& operator=(const ScalarConverter &copy);
-		~ScalarConverter(void);
-};
-
-#endif
+	return (0);
+}

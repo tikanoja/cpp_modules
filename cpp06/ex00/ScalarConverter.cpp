@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/23 15:44:59 by ttikanoj          #+#    #+#             */
+/*   Updated: 2023/08/23 15:45:23 by ttikanoj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
@@ -24,3 +35,6 @@ ScalarConverter::~ScalarConverter(void) {
 	std::cout << "ScalarConverter destructor called" << std::endl;
 	return ;
 }
+
+// For each exercise, the type conversion must be solved using one specific type of casting.
+// Your choice will be checked during defense.
