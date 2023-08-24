@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:43:55 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/23 21:13:00 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/24 10:19:25 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int main(int ac, char **av) {
 		return (1);
 	}
 	std::string str = av[1];
-	ScalarConverter sc;
-	sc.convert(str);
+	ScalarConverter::convert(str); //no need to instantiate (the idea of a static class...)
 	return (0);
 }
