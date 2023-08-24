@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/24 12:06:43 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:52:55 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <iostream>
 #include <string>
 #include <sstream> //converting std::string to an int via std::istrigstream
-#include <limits> //min max int float
-#include <cfloat> //constants for floats and epsilon
-#include <complex> //complex numbers
+// #include <limits> //min max int float
+// #include <cfloat> //constants for floats and epsilon
+#include <complex> //for nan
 //muista ottaa turhat helvettiin
 
 //"make a static class ????"
