@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/24 16:52:55 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/25 15:51:34 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 #include <complex> //for nan
 //muista ottaa turhat helvettiin
 
-//"make a static class ????"
 class ScalarConverter {
 	private:
 		static char scChar;
@@ -29,9 +28,13 @@ class ScalarConverter {
 		static float scFloat;
 		static double scDouble;
 
-		// int inputValidation(std::string);
+		static int scType;
 
-		static std::string detectType(std::string);
+		static int detectType(std::string);
+
+		static void castOthers(void);
+
+		static void printVariables(void);
 		
 		static int isChar(std::string);
 		static int isInt(std::string);
@@ -45,7 +48,7 @@ class ScalarConverter {
 		// ScalarConverter& operator=(const ScalarConverter &copy);
 		// ~ScalarConverter(void);
 		
-		static void convert(std::string);
+		static int convert(std::string str);
 };
 
 #endif
