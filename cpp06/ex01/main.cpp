@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:48:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 16:19:47 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:05:59 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
+//reinterpret_cast used to cast a pointer of data type into a pointer of another data type
 int main(void) {
 	Data original;
 	Data* deserialized;
@@ -22,7 +23,7 @@ int main(void) {
 
 	std::cout << "Initial address: " << &original << std::endl;
 
-	serialized = Serializer::serializer(&original);
+	serialized = Serializer::serialize(&original);
 	std::cout << "Serialized address: " << serialized << std::endl;
 
 	deserialized = Serializer::deserialize(serialized);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:45:51 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 15:54:37 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:06:27 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 #include <iostream>
 #include "Data.hpp"
 
-//reinterpret_cast used to cast a pointer of data type into a pointer of another data type
 class Serializer {
 	private:
-		//make cons/destructors and such
+		Serializer(void);
+		Serializer(Serializer const& other);
+		Serializer& operator=(Serializer const& other);
+		~Serializer(void);
 	
 	public:
-		static uintptr_t serializer(Data* ptr);
+		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
-	
 };
 
 #endif
