@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:45:51 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 15:01:28 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:54:37 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 # define SERIALIZER_HPP
 
 #include <stdint.h>
+#include <iostream>
 #include "Data.hpp"
 
-//reinterpret_cast
+//reinterpret_cast used to cast a pointer of data type into a pointer of another data type
 class Serializer {
 	private:
-	
+		//make cons/destructors and such
 	
 	public:
-		uintptr_t serializer(Data* ptr);
-		Data* deserialize(uintptr_t raw);
+		static uintptr_t serializer(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 	
 };
 
