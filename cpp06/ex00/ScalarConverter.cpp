@@ -3,45 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:44:59 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 14:36:54 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:19:16 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-int ScalarConverter::scCharFlag = 0;
-int ScalarConverter::scIntFlag = 0;
-int ScalarConverter::scFloatFlag = 0;
-int ScalarConverter::scDoubleFlag = 0;
-char ScalarConverter::scChar = 0;
-int ScalarConverter::scInt = 0;
-float ScalarConverter::scFloat = 0;
-double ScalarConverter::scDouble = 0;
-int ScalarConverter::scType = 0;
+	//init
+	int ScalarConverter::scCharFlag = 0;
+	int ScalarConverter::scIntFlag = 0;
+	int ScalarConverter::scFloatFlag = 0;
+	int ScalarConverter::scDoubleFlag = 0;
+	char ScalarConverter::scChar = 0;
+	int ScalarConverter::scInt = 0;
+	float ScalarConverter::scFloat = 0;
+	double ScalarConverter::scDouble = 0;
+	int ScalarConverter::scType = 0;
 
 ScalarConverter::ScalarConverter(void) {
 	std::cout << "ScalarConverter constructor called" << std::endl;
 	return ;
 }
 
-ScalarConverter::ScalarConverter(const ScalarConverter &copy) {
+ScalarConverter::ScalarConverter(const ScalarConverter& other) {
 	std::cout << "ScalarConverter copy constructor called" << std::endl;
-	*this = copy;
+	*this = other;
 	return ;
 }
 
-//muista täyttää tähä oikeet valuet
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter &copy) {
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
 	std::cout << "ScalarConverter copy assignment constructor called" << std::endl;
-	if (this != &copy) {
-		this->scChar = copy.scChar;
-		this->scInt = copy.scInt;
-		this->scFloat = copy.scFloat;
-		this->scDouble = copy.scDouble;
-		this->scType = copy.scType;
+	if (this != &other) {
+		this->scCharFlag = other.scCharFlag;
+		this->scIntFlag = other.scIntFlag;
+		this->scFloatFlag = other.scFloatFlag;
+		this->scDoubleFlag = other.scFloatFlag;
+		this->scChar = other.scChar;
+		this->scInt = other.scInt;
+		this->scFloat = other.scFloat;
+		this->scDouble = other.scDouble;
+		this->scType = other.scType;
 	}
 	return (*this);
 }
@@ -99,7 +103,7 @@ int ScalarConverter::isFloat(std::string str) {
 	int ecount = 0;
 	if (str[sign] == '-' || str[sign] == '+')
 		sign = 1;
-	for (int i = sign; i < (int)str.length() - 1; i++) { //onkohan toi cast ok?
+	for (int i = sign; i < (int)str.length() - 1; i++) {
 		if (str[i] == '.') {
 			if ((sign == 0 && i == 0) || (sign == 1 && i == 1))
 				return (1);
@@ -204,6 +208,8 @@ int ScalarConverter::detectType(std::string str) {
 	return (0);
 }
 
+
+//CASTAA ORIGINAL VAST KU ON TSEKANNU LIMIT!
 void ScalarConverter::castOthers(void) {
 	if (scType == 1) { //from char
 		ScalarConverter::scInt = static_cast <int> (ScalarConverter::scChar);
@@ -253,6 +259,7 @@ void ScalarConverter::castOthers(void) {
 }
 
 void ScalarConverter::printVariables(void) {
+	//PRINTING CHAR
 	std::cout << "char: ";
 	if (ScalarConverter::scCharFlag == 1)
 		std::cout << "impossible" << std::endl;
@@ -261,17 +268,20 @@ void ScalarConverter::printVariables(void) {
 	else
 		std::cout << ScalarConverter::scChar << std::endl;
 
+	//PRINTING INT
 	std::cout << "int: " ;
 	if (ScalarConverter::scIntFlag == 1)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << ScalarConverter::scInt << std::endl;
 
+	//PRINTING FLOAT
 	std::cout << "float: " << ScalarConverter::scFloat;
 	if (ScalarConverter::scFloat - (int)ScalarConverter::scFloat == 0)
 		std::cout << ".0";
 	std::cout << "f" << std::endl;
 
+	//PRINTING DOUBLE
 	std::cout << "double: " << ScalarConverter::scDouble;
 	if (ScalarConverter::scDouble - (int)ScalarConverter::scDouble == 0)
 		std::cout << ".0";

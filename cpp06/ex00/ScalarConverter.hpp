@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 14:36:55 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:10:24 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 #include <iostream>
 #include <string>
-#include <sstream> //converting std::string to an int via std::istrigstream
-#include <limits> //min max int float char
-// #include <cfloat> //constants for floats and epsilon
-#include <complex> //for nan
-//muista ottaa turhat helvettiin
+#include <sstream>
+#include <limits>
+#include <complex>
 
 class ScalarConverter {
 	private:
@@ -33,7 +31,7 @@ class ScalarConverter {
 		static float scFloat;
 		static double scDouble;
 
-		static int scType;
+		static int scType; //1 == char, 2 == int, 3 == float, 4 == double, 5 == TROUBLE :(
 
 		static int detectType(std::string);
 
@@ -47,13 +45,13 @@ class ScalarConverter {
 		static int isDouble(std::string);
 	
 		ScalarConverter(void);
-		ScalarConverter(const ScalarConverter &copy);
-		ScalarConverter& operator=(const ScalarConverter &copy);
+		ScalarConverter(const ScalarConverter& other);
+		ScalarConverter& operator=(const ScalarConverter& other);
 		~ScalarConverter(void);
 
 	public:
-		
 		static int convert(std::string str);
+		//setters & getters ?
 };
 
 #endif
