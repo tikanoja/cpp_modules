@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:44:59 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 14:29:46 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:36:54 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ ScalarConverter::~ScalarConverter(void) {
 	std::cout << "ScalarConverter destructor called" << std::endl;
 	return ;
 }
-//const- / destructors not needed in static class?
 
 int ScalarConverter::isChar(std::string str) {
 	if (str.length() > 1)

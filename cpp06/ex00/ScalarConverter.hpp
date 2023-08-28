@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 14:29:36 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:36:55 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class ScalarConverter {
 		static int isInt(std::string);
 		static int isFloat(std::string);
 		static int isDouble(std::string);
-		//const- / destructors not needed in static class?
+	
 		ScalarConverter(void);
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter& operator=(const ScalarConverter &copy);
