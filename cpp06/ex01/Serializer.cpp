@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:45:54 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 20:05:18 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/29 14:11:00 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ Serializer::Serializer(Serializer const& other) {
 }
 
 Serializer& Serializer::operator=(Serializer const& other) {
-	// if (this != &other) {
-	// 	//copy possible variables
-	// }
+	if (this != &other) {
+		//copy possible variables
+	}
 	return (*this);
 }
 
