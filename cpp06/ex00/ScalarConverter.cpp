@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:44:59 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 20:19:16 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/29 13:49:34 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,8 +203,7 @@ int ScalarConverter::detectType(std::string str) {
 		std::cout << "a double." << std::endl;
 		return (4);
 	}
-	else
-		std::cout << "not a valid input. Forget about it!" << std::endl;
+	std::cout << "not a valid input. Forget about it!" << std::endl;
 	return (0);
 }
 
@@ -253,7 +252,10 @@ void ScalarConverter::castOthers(void) {
 			ScalarConverter::scInt = static_cast <int> (ScalarConverter::scDouble);
 		else
 			ScalarConverter::scIntFlag = 1;
-		ScalarConverter::scFloat = static_cast <float> (ScalarConverter::scDouble);
+		if (ScalarConverter::scDouble >= std::numeric_limits<float>::min() && ScalarConverter::scDouble <= std::numeric_limits<float>::max())
+			ScalarConverter::scFloat = static_cast <float> (ScalarConverter::scDouble);
+		else
+			ScalarConverter::scFloatFlag = 1;
 	}
 	return ;
 }
@@ -269,17 +271,22 @@ void ScalarConverter::printVariables(void) {
 		std::cout << ScalarConverter::scChar << std::endl;
 
 	//PRINTING INT
-	std::cout << "int: " ;
+	std::cout << "int: ";
 	if (ScalarConverter::scIntFlag == 1)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << ScalarConverter::scInt << std::endl;
 
 	//PRINTING FLOAT
-	std::cout << "float: " << ScalarConverter::scFloat;
-	if (ScalarConverter::scFloat - (int)ScalarConverter::scFloat == 0)
-		std::cout << ".0";
-	std::cout << "f" << std::endl;
+	std::cout << "float: ";
+	if (ScalarConverter::scFloatFlag == 1)
+		std::cout << "impossible" << std::endl;
+	else {
+		std::cout << ScalarConverter::scFloat;
+		if (ScalarConverter::scFloat - (int)ScalarConverter::scFloat == 0)
+			std::cout << ".0";
+		std::cout << "f" << std::endl;
+	}
 
 	//PRINTING DOUBLE
 	std::cout << "double: " << ScalarConverter::scDouble;

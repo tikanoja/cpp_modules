@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:45:04 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 20:10:24 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/29 13:23:50 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,15 @@ class ScalarConverter {
 		static int scIntFlag; // 0 == okay, 1 == impossible
 		static int scFloatFlag; // 0 == okay, 1 == impossible
 		static int scDoubleFlag; // 0 == okay, 1 == impossible
-		
 		static char scChar;
 		static int scInt;
 		static float scFloat;
 		static double scDouble;
-
 		static int scType; //1 == char, 2 == int, 3 == float, 4 == double, 5 == TROUBLE :(
 
 		static int detectType(std::string);
-
 		static void castOthers(void);
-
 		static void printVariables(void);
-		
 		static int isChar(std::string);
 		static int isInt(std::string);
 		static int isFloat(std::string);
@@ -51,7 +46,6 @@ class ScalarConverter {
 
 	public:
 		static int convert(std::string str);
-		//setters & getters ?
 };
 
 #endif
