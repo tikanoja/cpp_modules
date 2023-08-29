@@ -6,11 +6,18 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:12:29 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/29 15:26:24 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:44:17 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAX_HPP
 # define MAX_HPP
+
+template<typename T>
+T max(T& arg1, T& arg2) {
+	if (arg1 > arg2)
+		return (arg1);
+	return (arg2);
+}
 
 #endif
