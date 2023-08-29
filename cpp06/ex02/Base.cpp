@@ -1,18 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 09:52:57 by ttikanoj          #+#    #+#             */
+/*   Updated: 2023/08/29 12:06:42 by ttikanoj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Base.hpp"
 
 Base::~Base() {
-	return ;
-}
-
-Base* Base::generate(void) {
-	Base* ptr;
-	return (ptr);
-}
-
-void Base::identify(Base* p) {
-	return ;
-}
-
-void Base::identify(Base& p) {
 	return ;
 }

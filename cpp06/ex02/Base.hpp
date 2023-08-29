@@ -1,17 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 09:53:05 by ttikanoj          #+#    #+#             */
+/*   Updated: 2023/08/29 12:06:32 by ttikanoj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BASE_HPP
 # define BASE_HPP
-
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
 
 class Base {
 	private:
 	public:
 		virtual ~Base();
-		Base* generate(void);
-		void identify(Base* p);
-		void identify(Base& p);
 };
 
 #endif
