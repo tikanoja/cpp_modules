@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:53:05 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/29 12:06:32 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:14:27 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define BASE_HPP
 
 class Base {
-	private:
 	public:
 		virtual ~Base();
 };
