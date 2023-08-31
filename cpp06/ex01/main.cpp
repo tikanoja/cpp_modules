@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:48:22 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/28 20:05:59 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/08/31 14:13:41 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void) {
 	std::cout << "Serialized address: " << serialized << std::endl;
 
 	deserialized = Serializer::deserialize(serialized);
-	std::cout << "Deserialized address: " << serialized << std::endl;
+	std::cout << "Deserialized address: " << deserialized << std::endl;
 	
 	std::cout << deserialized->foo << std::endl;
 	return (0);
