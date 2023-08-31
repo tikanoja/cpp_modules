@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:44:59 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/08/29 13:49:34 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:59:00 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,8 +207,6 @@ int ScalarConverter::detectType(std::string str) {
 	return (0);
 }
 
-
-//CASTAA ORIGINAL VAST KU ON TSEKANNU LIMIT!
 void ScalarConverter::castOthers(void) {
 	if (scType == 1) { //from char
 		ScalarConverter::scInt = static_cast <int> (ScalarConverter::scChar);
@@ -252,7 +250,7 @@ void ScalarConverter::castOthers(void) {
 			ScalarConverter::scInt = static_cast <int> (ScalarConverter::scDouble);
 		else
 			ScalarConverter::scIntFlag = 1;
-		if (ScalarConverter::scDouble >= std::numeric_limits<float>::min() && ScalarConverter::scDouble <= std::numeric_limits<float>::max())
+		if ((ScalarConverter::scDouble >= std::numeric_limits<float>::min() && ScalarConverter::scDouble <= std::numeric_limits<float>::max()) || std::isnan(ScalarConverter::scDouble))
 			ScalarConverter::scFloat = static_cast <float> (ScalarConverter::scDouble);
 		else
 			ScalarConverter::scFloatFlag = 1;
