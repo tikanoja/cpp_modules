@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:56:37 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/01 12:54:55 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/01 14:22:26 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Array {
 		
 		unsigned int size(void) const; //returns the number of elements in the array, MUST NOT MOFIDY THE CURRENT INSTANCE
 
-		class OutOfBounds : public std::exception {
+		class OutOfBoundsException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
@@ -54,14 +54,37 @@ Array<T>::Array(unsigned int n) {
 }
 
 template <typename T>
+Array<T>::~Array(void) {
+	std::cout << "Array destructor called" << std::endl;
+	delete[] this->arr;
+	return ;
+}
+
+template <typename T>
 Array<T>::Array(Array const& other) {
 	std::cout << "Array copy constructor called" << std::endl;
-	size = other.size;
-	delete[] arr; //delete possibly allocated memory before copying the previous memory over!
-	arr = new T[size];
-	for (unsigned int i = 0; other.arr[i]; i++)
-		arr[i] = other.arr[i];
+	*this = other;
 	return ;
+}
+
+template <typename T>
+Array<T>& Array<T>::operator=(Array const& other) {
+	std::cout << "Array copy assignment constructor called" << std::endl;
+	if (*this != other) {
+		size = other.size;
+		delete[] arr; //delete possibly allocated memory before copying the previous memory over!
+		arr = new T[size];
+		for (unsigned int i = 0; other.arr[i]; i++)
+			arr[i] = other.arr[i];
+	}
+	return (*this);
+}
+
+template <typename T>
+Array<T>& Array<T>::operator[](unsigned int n) {
+	if (n >= this->size || n < 0)
+		throw Array<T>::OutOfBoundsException();
+	return (this->arr[n]); //addr?? ptr?? raw???!!
 }
 
 template <typename T>
@@ -70,7 +93,7 @@ unsigned int Array<T>::size(void) const { //onkohan const tarpeen ?
 }
 
 template <typename T>
-const char* Array<T>::OutOfBounds::what() const throw() {
+const char* Array<T>::OutOfBoundsException::what() const throw() {
 	return ("You are trying to access non-allocated memory! :(\0");
 }
 
