@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+         #
+#    By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 13:53:37 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/09/01 10:56:29 by ttikanoj         ###   ########.fr        #
+#    Updated: 2023/09/02 07:40:46 by tuukka           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = main.cpp
+NAME = arr
 
 SRC = main.cpp
 
