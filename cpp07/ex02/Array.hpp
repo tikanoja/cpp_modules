@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:56:37 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/03 15:29:54 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/03 15:57:27 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ template <typename T>
 Array<T>::Array(void) {
 	std::cout << "Array(void) constructor called" << std::endl;
 	arrsize = 0;
-	arr = new T[0];
+	// arr = new T[0]; //en tiiä onks täs ees mitää järkee ???
+	arr = NULL;
 	return ;
 }
 
@@ -87,14 +88,20 @@ Array<T>& Array<T>::operator=(Array const& other) {
 
 template <typename T>
 T& Array<T>::operator[](unsigned int n) {
-	try {
-		if (n >= this->arrsize || n < 0)
-			throw Array<T>::OutOfBoundsException();
-		return (this->arr[n]); //addr?? ptr?? raw???!!
-	} catch (std::exception& e) {
-		std::cerr << "Caught an error: " << e.what() << std::endl;
-		return (this->arr[n]); // this is definately not good !!!
-	}
+	//tää vois olla kiva jos ois järkevä return toho catch
+	// try {
+	// 	if (n >= this->arrsize || n < 0)
+	// 		throw Array<T>::OutOfBoundsException();
+	// 	return (this->arr[n]); //addr?? ptr?? raw???!!
+	// } catch (std::exception& e) {
+	// 	std::cerr << "Caught an error: " << e.what() << std::endl;
+	// 	return (this->arr[n]); // this is definately not good !!!
+	// }
+	
+	//täl setil menee 42main läpi no problem
+	if (n >= this->arrsize || n < 0)
+		throw Array<T>::OutOfBoundsException();
+	return (this->arr[n]); //addr?? ptr?? raw???!!
 }
 
 template <typename T>
