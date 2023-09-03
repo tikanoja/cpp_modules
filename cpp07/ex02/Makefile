@@ -6,13 +6,13 @@
 #    By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 13:53:37 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/09/02 07:40:46 by tuukka           ###   ########.fr        #
+#    Updated: 2023/09/03 14:32:00 by tuukka           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = arr
 
-SRC = main.cpp
+SRC = mymain.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -6,12 +6,14 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:56:37 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/02 08:02:31 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/03 15:29:54 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
+
+#include <iostream>
 
 //MUST USE new[] OPERATOR TO ALLOCATE MEMORY
 template <typename T>
@@ -85,9 +87,14 @@ Array<T>& Array<T>::operator=(Array const& other) {
 
 template <typename T>
 T& Array<T>::operator[](unsigned int n) {
-	if (n >= this->arrsize || n < 0)
-		throw Array<T>::OutOfBoundsException();
-	return (this->arr[n]); //addr?? ptr?? raw???!!
+	try {
+		if (n >= this->arrsize || n < 0)
+			throw Array<T>::OutOfBoundsException();
+		return (this->arr[n]); //addr?? ptr?? raw???!!
+	} catch (std::exception& e) {
+		std::cerr << "Caught an error: " << e.what() << std::endl;
+		return (this->arr[n]); // this is definately not good !!!
+	}
 }
 
 template <typename T>
