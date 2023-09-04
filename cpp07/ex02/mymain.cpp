@@ -3,11 +3,18 @@
 int main (void) {
 	//construction w void
 	Array<int> noparam;
+	try {
 	noparam[0] = 1;
-	noparam[1] = 2;
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
 	std::cout << noparam[0] << std::endl << noparam[1] << std::endl;
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
 	std::cout << "Size of the arr: " << noparam.size() << std::endl;
-	
+
 	//arr of another type
 	Array<char> char_arr(10);
 	for (int i = 0; i < 10; i++) {
