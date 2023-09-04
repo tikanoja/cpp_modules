@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:56:37 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/03 15:57:27 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/04 15:31:32 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 
-//MUST USE new[] OPERATOR TO ALLOCATE MEMORY
 template <typename T>
 class Array {
 	private:
@@ -23,15 +22,15 @@ class Array {
 		T* arr;
 
 	public:
-		Array(void); //creates an empty array
-		Array(unsigned int n); //creates an array of n elements *Tip: Try to compile int * a = new int(); then display *a.* initialized my default ???
-		~Array(void); //remember to check mem leaks
-		Array(Array const& other); //deep copy! modifying the original arr must not affect the copy & vice versa!
+		Array(void);
+		Array(unsigned int n);
+		~Array(void);
+		Array(Array const& other);
 
-		Array& operator=(Array const& other); //deep copy! modifying the original arr must not affect the copy & vice versa!
-		T& operator[](unsigned int n); // Elements can be accessed through the subscript operator: [ ]. if out of bounds, throw std::exception
+		Array& operator=(Array const& other);
+		T& operator[](unsigned int n);
 		
-		unsigned int size(void) const; //returns the number of elements in the array, MUST NOT MOFIDY THE CURRENT INSTANCE
+		unsigned int size(void) const;
 
 		class OutOfBoundsException : public std::exception {
 			public:
@@ -42,17 +41,16 @@ class Array {
 template <typename T>
 Array<T>::Array(void) {
 	std::cout << "Array(void) constructor called" << std::endl;
-	arrsize = 0;
-	// arr = new T[0]; //en tiiä onks täs ees mitää järkee ???
-	arr = NULL;
+	this->arrsize = 0;
+	this->arr = NULL;
 	return ;
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n) {
 	std::cout << "Array(unsigned int n) constructor called" << std::endl;
-	arrsize = n;
-	arr = new T[n];
+	this->arrsize = n;
+	this->arr = new T[n];
 	return ;
 }
 
@@ -67,7 +65,7 @@ Array<T>::~Array(void) {
 template <typename T>
 Array<T>::Array(Array const& other) {
 	std::cout << "Array copy constructor called" << std::endl;
-	this->arr = NULL; // taa fiksaa ku duunaa uutta tmp toisen perusteella
+	this->arr = NULL;
 	*this = other;
 	return ;
 }
@@ -76,37 +74,26 @@ template <typename T>
 Array<T>& Array<T>::operator=(Array const& other) {
 	std::cout << "Array copy assignment constructor called" << std::endl;
 	if (this != &other) {
-		arrsize = other.size();
+		this->arrsize = other.size();
 		if (this->arr != NULL)
-			delete[] arr; //delete possibly allocated memory before copying the previous memory over!
-		arr = new T[arrsize];
-		for (unsigned int i = 0; other.arr[i]; i++)
-			arr[i] = other.arr[i];
+			delete[] arr;
+		this->arr = new T[arrsize];
+		for (unsigned int i = 0; i < other.size(); i++)
+			this->arr[i] = other.arr[i];
 	}
 	return (*this);
 }
 
 template <typename T>
 T& Array<T>::operator[](unsigned int n) {
-	//tää vois olla kiva jos ois järkevä return toho catch
-	// try {
-	// 	if (n >= this->arrsize || n < 0)
-	// 		throw Array<T>::OutOfBoundsException();
-	// 	return (this->arr[n]); //addr?? ptr?? raw???!!
-	// } catch (std::exception& e) {
-	// 	std::cerr << "Caught an error: " << e.what() << std::endl;
-	// 	return (this->arr[n]); // this is definately not good !!!
-	// }
-	
-	//täl setil menee 42main läpi no problem
 	if (n >= this->arrsize || n < 0)
 		throw Array<T>::OutOfBoundsException();
-	return (this->arr[n]); //addr?? ptr?? raw???!!
+	return (this->arr[n]);
 }
 
 template <typename T>
-unsigned int Array<T>::size(void) const { //onkohan const tarpeen ?
-	return (this->arrsize); //onkohan toi this-> tarpeellinen?
+unsigned int Array<T>::size(void) const {
+	return (this->arrsize);
 }
 
 template <typename T>
