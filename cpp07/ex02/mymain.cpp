@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 13:19:10 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/04 15:28:04 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:32:55 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int main (void) {
 	std::cout << "b = " << *b << std::endl;
 	delete a;
 	delete b;
-
 
 	std::cout << std::endl << "* * * Copy, assignment & deep/shallow test * * *" << std::endl;
 	Array<float> float_arr(5);
