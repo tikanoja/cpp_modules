@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 10:42:52 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/05 10:59:44 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:42:05 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 
 template <typename T>
-void printer(T arg) {
+void printer(T& arg) {
 	std::cout << arg << std::endl;
 	return ;
 }
