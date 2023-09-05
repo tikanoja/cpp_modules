@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mymain.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 13:19:10 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/04 15:32:55 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:57:28 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ int main (void) {
 	std::cout << "Arr 1 index 0: " << float_arr[0] << std::endl;
 	std::cout << "Arr 2 index 0: " << another_float_arr[0] << std::endl;
 	std::cout << "Arr 3 index 0: " << yet_another_float_arr[0] << std::endl;
+
+	std::cout << std::endl << "* * * Accessing a const array * * *" << std::endl;
+	Array<int> const const_arr(1);
+	std::cout << const_arr[0] << std::endl;
 
 	std::cout << std::endl << "Okay thats it! Thank you for your patience. Going out of scope now so have a good one & enjoy the destructor prints!" << std::endl;
 	return (0);

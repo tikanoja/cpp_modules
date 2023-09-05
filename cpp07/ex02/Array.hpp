@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:56:37 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/05 13:33:53 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:56:51 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Array {
 		Array(Array const& other);
 
 		Array& operator=(Array const& other);
-		T const & operator[](unsigned int n) const; //muista tsekkaa taa!
 		T& operator[](unsigned int n);
+		T const & operator[](unsigned int n) const;
 		
 		unsigned int size(void) const;
 
@@ -93,7 +93,7 @@ T& Array<T>::operator[](unsigned int n) {
 }
 
 template <typename T>
-T const & Array<T>::operator[](unsigned int n) const{ //muista tsekkaa taa!
+T const & Array<T>::operator[](unsigned int n) const{
 	if (n >= this->arrsize || n < 0)
 		throw Array<T>::OutOfBoundsException();
 	return (this->arr[n]);
