@@ -6,46 +6,53 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:03:07 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/05 09:40:22 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:54:09 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-#include <array> //std::array
 #include <vector>
-#include <algorithm> //std::fill
+#include <list>
+#include <deque>
+
+#include <algorithm> //find some nice use for this!!!!!
 #include <iostream>
 
-//you dont have to handle associative containers eg. std::map
-//which implies that you DO have to handle standard (sequential) containers!
-//eg. std::vector, std::list, std::deque, std::array
-
 int main(void) {
-	std::array<int, 1000> intarray;
-	int num = 0;
-	for (std::array<int, 1000>::iterator i = intarray.begin();\
-		i != intarray.end();\
-		i++) { // 1. declaring iterator and setting to the start of the container 2. terminating contition is the end of the container 3. increment of the iterator, maybe should be ++i
-		*i = num; //iterator itself is a pointer to the location in the array;
-		num++;
+	std::cout << "* * * std::vector * * *" << std::endl;
+	std::vector<int> intvector; //a dynamic bad boy that can grow in size!
+	for (int i = 0; i < 1000; i++) {
+		intvector.push_back(i);
 	}
-	easyfind(intarray, 42);
-	easyfind(intarray, 999);
-	easyfind(intarray, 1000);
+	easyfind(intvector, 42);
+	easyfind(intvector, 999);
+	easyfind(intvector, 1000);
+	easyfind(intvector, -42);
 
-	std::vector<int> intvector;
-	intvector.push_back(105);
-	intvector.push_back(666);
-	intvector.push_back(404);
-	intvector.push_back(42);
-	intvector.push_back(1337);
-	easyfind(intarray, 42);
-	easyfind(intarray, -1);
-	easyfind(intarray, 1338);
-
+	std::cout << std::endl << "* * * std::deque * * *" << std::endl;
+	std::deque<int> intdeque; //double-ended queue; inser-/deletion from both ends, supports []
+	for (int i = 0; i < 1000; i++) {
+		if (i % 2 == 0)
+			intdeque.push_back(i);
+		else
+			intdeque.push_front(i);
+	}
+	easyfind(intdeque, 42);
+	easyfind(intdeque, 999);
+	easyfind(intdeque, 1000);
+	easyfind(intdeque, -42);
+	
+	std::cout << std::endl << "* * * std::list * * *" << std::endl;
+	std::list<int> intlist; //doubly linked list; allows insertion anywhere in the list, no support for [] so neet to traverse the entire list
+	for (int i = 0; i < 1000; i++) {
+		if (i % 3 == 0)
+			intlist.insert(intlist.end(), i);
+		else
+			intlist.insert(intlist.begin(), i);
+	}
+	easyfind(intlist, 42);
+	easyfind(intlist, 999);
+	easyfind(intlist, 1000);
+	easyfind(intlist, -42);
 	return (0);
 }
-
-	// bretty cool!
-	// std::fill(intarray.begin(), intarray.end(), number++);
-	// intarray.data(); //returns a raw pointer to the array
