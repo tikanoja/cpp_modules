@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:56:37 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/04 15:31:32 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:33:53 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Array {
 		Array(Array const& other);
 
 		Array& operator=(Array const& other);
+		T const & operator[](unsigned int n) const; //muista tsekkaa taa!
 		T& operator[](unsigned int n);
 		
 		unsigned int size(void) const;
@@ -86,6 +87,13 @@ Array<T>& Array<T>::operator=(Array const& other) {
 
 template <typename T>
 T& Array<T>::operator[](unsigned int n) {
+	if (n >= this->arrsize || n < 0)
+		throw Array<T>::OutOfBoundsException();
+	return (this->arr[n]);
+}
+
+template <typename T>
+T const & Array<T>::operator[](unsigned int n) const{ //muista tsekkaa taa!
 	if (n >= this->arrsize || n < 0)
 		throw Array<T>::OutOfBoundsException();
 	return (this->arr[n]);
