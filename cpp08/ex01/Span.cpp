@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:40 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/06 12:35:20 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:47:44 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,21 @@ Span& Span::operator=(Span const& other) {
 	return (*this);
 }
 
-void addNumber(int number);
-unsigned int shortestSpan();
-unsigned int longestSpan();
+void Span::addNumber(int number){
+	if (container.size() < this->size) //muista tsekkaa onko < vai <=
+		container.push_back(number);
+	else
+		throw Span::ContainerFullException();
+	return ;
+}
+
+unsigned int shortestSpan() {
+	//kokeile loytyyko span
+	//jos ei throw excep.
+	return (0);
+}
+unsigned int longestSpan() {
+	//kokeile loytyyko span
+	//jos ei throw excep.
+	return (0);
+}
