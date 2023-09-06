@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:03:07 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/05 14:54:09 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/06 10:38:48 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 #include <algorithm> //find some nice use for this!!!!!
 #include <iostream>
+#include <stdexcept>
 
 int main(void) {
 	std::cout << "* * * std::vector * * *" << std::endl;
@@ -24,10 +25,26 @@ int main(void) {
 	for (int i = 0; i < 1000; i++) {
 		intvector.push_back(i);
 	}
-	easyfind(intvector, 42);
-	easyfind(intvector, 999);
-	easyfind(intvector, 1000);
-	easyfind(intvector, -42);
+	try {
+		easyfind(intvector, 42);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intvector, 999);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intvector, 1000);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intvector, -42);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
 
 	std::cout << std::endl << "* * * std::deque * * *" << std::endl;
 	std::deque<int> intdeque; //double-ended queue; inser-/deletion from both ends, supports []
@@ -37,10 +54,26 @@ int main(void) {
 		else
 			intdeque.push_front(i);
 	}
-	easyfind(intdeque, 42);
-	easyfind(intdeque, 999);
-	easyfind(intdeque, 1000);
-	easyfind(intdeque, -42);
+	try {
+		easyfind(intdeque, 42);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intdeque, 999);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intdeque, 1000);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intdeque, -42);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
 	
 	std::cout << std::endl << "* * * std::list * * *" << std::endl;
 	std::list<int> intlist; //doubly linked list; allows insertion anywhere in the list, no support for [] so neet to traverse the entire list
@@ -50,9 +83,25 @@ int main(void) {
 		else
 			intlist.insert(intlist.begin(), i);
 	}
-	easyfind(intlist, 42);
-	easyfind(intlist, 999);
-	easyfind(intlist, 1000);
-	easyfind(intlist, -42);
+	try {
+		easyfind(intlist, 42);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intlist, 999);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intlist, 1000);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	try {
+		easyfind(intlist, -42);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
 	return (0);
 }
