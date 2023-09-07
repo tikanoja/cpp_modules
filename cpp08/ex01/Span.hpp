@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:38 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/06 12:29:45 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/07 10:16:17 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@ class Span {
 		Span& operator=(Span const& other);
 
 		void addNumber(int number);
-		unsigned int shortestSpan();
-		unsigned int longestSpan();
+		void addManyNumbers(unsigned int amount, int number); //make a member function that adds many numbers in one call using iterators! maybe std::fill ?
+		int shortestSpan();
+		int longestSpan();
 		
 		class NoSpanException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
+		
 		class ContainerFullException : public std::exception {
 			public:
 				const char* what() const throw();

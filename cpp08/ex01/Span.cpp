@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:40 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/06 12:47:44 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/07 10:19:35 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ const char* Span::ContainerFullException::what() const throw() {
 }
 
 Span::Span(void) {
-	std::cout << "Span constructor called" << std::endl;
+	std::cout << "Span constructor called (void input)" << std::endl;
 	return ;
 }
 
 Span::Span(unsigned int N) {
+	std::cout << "Span constructor called" << std::endl;
 	this->size = N;
 	return ;
 }
@@ -58,13 +59,30 @@ void Span::addNumber(int number){
 	return ;
 }
 
-unsigned int shortestSpan() {
-	//kokeile loytyyko span
-	//jos ei throw excep.
-	return (0);
+void Span::addManyNumbers(unsigned int amount, int number)  {
+	(void)amount;
+	(void)number;
+	return ;
 }
-unsigned int longestSpan() {
-	//kokeile loytyyko span
-	//jos ei throw excep.
-	return (0);
+
+int Span::shortestSpan() {
+	if (this->size == 0 || this->size == 1)
+		throw Span::NoSpanException();
+	int temp = 2147483647; //init to max range
+	std::sort(container.begin(), container.end()); //sorting into ascending order TAA KAYTTAA <algorithm> :)
+	std::vector<int>::iterator it = container.begin(); //setting the iterator to be in the beginning of the container
+	while (it != container.end() - 1) {
+		if (*(it + 1) - *it < temp)
+			temp = *(it + 1) - *it;
+		it++;
+	}
+	return (temp);
+}
+
+int Span::longestSpan() {
+	if (this->size == 0 || this->size == 1)
+		throw Span::NoSpanException();
+	int min = *std::min_element(container.begin(), container.end()); //returns iterator so dereferencing pointer gives us the actual value pointed to ?
+	int max = *std::max_element(container.begin(), container.end()); //min&max_element kayttaa <algorithm> :)
+	return (max - min);
 }
