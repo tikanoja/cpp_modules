@@ -6,14 +6,19 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:23:12 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 13:32:48 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:04:31 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
+//std::stack is a wrapper for deque!
+
 int main(void) {
 	MutantStack<int> mstack;
+	mstack.push(42);
+	mstack.pop();
+	// mstack.pop(); //segfault
 
 	
 	return (0);
