@@ -6,25 +6,24 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:01 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 10:42:22 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:06:36 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 //muista teha overload ja tsek jos on const span
+//many numbers on one call? duplicates vai variadic function ?
 
 int main(void) {
-	std::cout << "* * * Million calls & then one * * *" << std::endl;
+	std::cout << "* * * Million & then one * * *" << std::endl;
 	Span million(1000000);
-	for (int i = 0; i < 1000001; i++) {
-		try {
-			million.addNumber(i);
-		} catch (std::exception& e) {
+	try {
+		million.addManyNumbers(1000001, 42);
+	} catch (std::exception& e) {
 			std::cerr << "Caught an exception: " << e.what() << std::endl;
-		}
 	}
-	
+
 	std::cout << std::endl << "* * * Getting the min & max span * * *" << std::endl;
 	Span foo(5);
 	try {
@@ -40,7 +39,26 @@ int main(void) {
 	std::cout << "Return value of foo.longestSpan(): " << foo.longestSpan() << std::endl;
 	std::cout << "Return value of foo.shortestSpan(): " << foo.shortestSpan() << std::endl;
 
-	std::cout << std::endl << "* * * StReSs TeSt * * *" << std::endl;
+	std::cout << std::endl << "* * * Copying * * *" << std::endl;
+	Span bar(6);
+	try {
+		bar.addNumber(1);
+		bar.addNumber(3);
+		bar.addNumber(6);
+		bar.addNumber(10);
+		bar.addNumber(100);
+		bar.addNumber(1000000);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+
+	std::cout << "Return value of bar.longestSpan(): " << bar.longestSpan() << std::endl;
+	std::cout << "Return value of bar.shortestSpan(): " << bar.shortestSpan() << std::endl;
+	
+	bar = foo;
+	
+	std::cout << "Return value of bar.longestSpan(): " << bar.longestSpan() << std::endl;
+	std::cout << "Return value of bar.shortestSpan(): " << bar.shortestSpan() << std::endl << std::endl;
 	return (0);
 }
 

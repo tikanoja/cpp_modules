@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:40 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 10:19:35 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:10:24 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ const char* Span::ContainerFullException::what() const throw() {
 
 Span::Span(void) {
 	std::cout << "Span constructor called (void input)" << std::endl;
+	this->size = 0;
 	return ;
 }
 
@@ -46,29 +47,36 @@ Span& Span::operator=(Span const& other) {
 	std::cout << "Span copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->size = other.size;
-		// and copy container !!!!!
+		this->container.clear();
+		for (unsigned int i = 0; i < other.container.size(); i++)
+			this->container.push_back(other.container[i]);
 	}
 	return (*this);
 }
 
 void Span::addNumber(int number){
-	if (container.size() < this->size) //muista tsekkaa onko < vai <=
+	if (container.size() < this->size)
 		container.push_back(number);
 	else
 		throw Span::ContainerFullException();
 	return ;
 }
 
-void Span::addManyNumbers(unsigned int amount, int number)  {
-	(void)amount;
-	(void)number;
+//taa on vaha nasty mut menee menee? ehk std::fill ois parempi?
+void Span::addManyNumbers(unsigned int amount, int number) {
+	for (unsigned int i = 0; i < amount; i++) {
+		if (container.size() < this->size)
+			container.push_back(number);
+		else
+			throw Span::ContainerFullException();
+	}
 	return ;
 }
 
 int Span::shortestSpan() {
 	if (this->size == 0 || this->size == 1)
 		throw Span::NoSpanException();
-	int temp = 2147483647; //init to max range
+	int temp = INT_MAX;
 	std::sort(container.begin(), container.end()); //sorting into ascending order TAA KAYTTAA <algorithm> :)
 	std::vector<int>::iterator it = container.begin(); //setting the iterator to be in the beginning of the container
 	while (it != container.end() - 1) {

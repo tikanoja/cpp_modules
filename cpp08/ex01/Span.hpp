@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:38 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 10:16:17 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/07 12:40:54 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdexcept>
 #include <vector>
 #include <iostream>
+#include <limits>
 
 class Span {
 	private:
