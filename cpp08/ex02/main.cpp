@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:23:12 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 16:04:31 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:24:41 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 
 int main(void) {
 	MutantStack<int> mstack;
-	mstack.push(42);
-	mstack.pop();
-	// mstack.pop(); //segfault
-
-	
+	for (int i = 0; i < 5; i++) {
+		mstack.push(i);
+	}
+	//somehow get a pointer to the element at the bottom
+	//
 	return (0);
 }
 
+//SUBJECT MAIN
 // int main()
 // {
 // 	MutantStack<int> mstack;

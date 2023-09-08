@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:20:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 15:52:27 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:24:42 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,22 @@
 
 #include <iostream>
 #include <stack>
+#include <iterator>
 
 template <typename T>
 class MutantStack : public std::stack<T> {
 	private:
+		//declare iterator (possibly inherit from std::iterator)
+		
 	public:
 		MutantStack(void);
 		~MutantStack(void);
 		MutantStack(MutantStack const& other);
 		MutantStack& operator=(MutantStack const& other);
+
+		//functions to return pointers to the bot & top
+		//overload ++ and --
+		//overload * to dereference the ptr and get the value
 };
 
 template <typename T>
