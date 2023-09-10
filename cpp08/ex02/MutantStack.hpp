@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:20:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/08 14:24:42 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/10 23:30:02 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,25 @@
 #include <iterator>
 
 template <typename T>
-class MutantStack : public std::stack<T> {
+class MutantStack : public std::stack<T, std::deque<T> > { //using deque as base container
 	private:
-		//declare iterator (possibly inherit from std::iterator)
-		
 	public:
 		MutantStack(void);
 		~MutantStack(void);
 		MutantStack(MutantStack const& other);
 		MutantStack& operator=(MutantStack const& other);
 
+		typedef typename std::deque<T>::iterator iterator;
+		// & typedef typename const_it; //luultavasti...
+
 		//functions to return pointers to the bot & top
+		iterator begin();
+		iterator end();
+
+		//functions to return pointers to the bot & top //CONST
+		// stackIterator begin() const;
+		// stackIterator end() const;
+
 		//overload ++ and --
 		//overload * to dereference the ptr and get the value
 };
@@ -56,9 +64,21 @@ template <typename T>
 MutantStack<T>& MutantStack<T>::operator=(MutantStack const& other) {
 	std::cout << "MutantStack assignment operator called" << std::endl;
 	if (this != &other) {
-		//copy stuff
+		this->c = other.c;
+		//tarviikohan jotain muuta?
+		//testaa et toimii!
 	}
 	return (*this);
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin(void) {
+	return (this->c.begin()); // "c" refers to the underlying container member variable used to store data
+}
+
+template <typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end(void) {
+	return (this->c.end());
 }
 
 #endif
