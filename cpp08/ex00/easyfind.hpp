@@ -6,15 +6,16 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:03:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/06 10:21:08 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:47:36 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <algorithm>
-#include <array>
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
+#include <iostream>
 #include <stdexcept>
+#include <algorithm>
 
 class NoMatchException : public std::exception {
 public:
@@ -32,3 +33,5 @@ void easyfind(T haystack, int needle) {
 		throw NoMatchException();
 	return ;
 }
+
+#endif
