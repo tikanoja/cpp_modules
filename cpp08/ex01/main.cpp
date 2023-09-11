@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:01 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 13:06:36 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/11 20:50:42 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-
-//muista teha overload ja tsek jos on const span
-//many numbers on one call? duplicates vai variadic function ?
 
 int main(void) {
 	std::cout << "* * * Million & then one * * *" << std::endl;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:40 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/07 13:10:24 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/11 20:50:25 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void Span::addNumber(int number){
 	return ;
 }
 
-//taa on vaha nasty mut menee menee? ehk std::fill ois parempi?
 void Span::addManyNumbers(unsigned int amount, int number) {
 	for (unsigned int i = 0; i < amount; i++) {
 		if (container.size() < this->size)
@@ -77,8 +76,8 @@ int Span::shortestSpan() {
 	if (this->size == 0 || this->size == 1)
 		throw Span::NoSpanException();
 	int temp = INT_MAX;
-	std::sort(container.begin(), container.end()); //sorting into ascending order TAA KAYTTAA <algorithm> :)
-	std::vector<int>::iterator it = container.begin(); //setting the iterator to be in the beginning of the container
+	std::sort(container.begin(), container.end());
+	std::vector<int>::iterator it = container.begin();
 	while (it != container.end() - 1) {
 		if (*(it + 1) - *it < temp)
 			temp = *(it + 1) - *it;
@@ -90,7 +89,7 @@ int Span::shortestSpan() {
 int Span::longestSpan() {
 	if (this->size == 0 || this->size == 1)
 		throw Span::NoSpanException();
-	int min = *std::min_element(container.begin(), container.end()); //returns iterator so dereferencing pointer gives us the actual value pointed to ?
-	int max = *std::max_element(container.begin(), container.end()); //min&max_element kayttaa <algorithm> :)
+	int min = *std::min_element(container.begin(), container.end());
+	int max = *std::max_element(container.begin(), container.end());
 	return (max - min);
 }
