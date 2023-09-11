@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:20:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/11 12:26:22 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/11 12:33:44 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ MutantStack<T>& MutantStack<T>::operator=(MutantStack const& other) {
 	std::cout << "MutantStack assignment operator called" << std::endl;
 	if (this != &other) {
 		// this->c = other.c;
-		std::stack<T>::operator=(other); //we can let the base class handle the assignment ?
+		std::stack<T, std::deque<T> >::operator=(other); //we can let the base class handle the assignment ?
+		//tarviiko tarkentaa taas uudestaa täs et base container on deque?
 	}
 	return (*this);
 }
