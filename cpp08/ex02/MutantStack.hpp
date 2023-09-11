@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:20:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/10 23:30:02 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/11 12:26:22 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ class MutantStack : public std::stack<T, std::deque<T> > { //using deque as base
 		//functions to return pointers to the bot & top //CONST
 		// stackIterator begin() const;
 		// stackIterator end() const;
-
-		//overload ++ and --
-		//overload * to dereference the ptr and get the value
 };
 
 template <typename T>
@@ -64,9 +61,8 @@ template <typename T>
 MutantStack<T>& MutantStack<T>::operator=(MutantStack const& other) {
 	std::cout << "MutantStack assignment operator called" << std::endl;
 	if (this != &other) {
-		this->c = other.c;
-		//tarviikohan jotain muuta?
-		//testaa et toimii!
+		// this->c = other.c;
+		std::stack<T>::operator=(other); //we can let the base class handle the assignment ?
 	}
 	return (*this);
 }
