@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:23:12 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/11 12:26:25 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/11 15:28:31 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
-//std::stack is a wrapper for deque!
-
 int main(void) {
 	MutantStack<int> mstack;
-	std::cout << std::endl << "* * * Filling in 0-11 to the stack via push() * * *" << std::endl;
-	for (int i = 0; i <= 11; i++) {
+	std::cout << std::endl << "* * * Filling in 1-11 to the stack via push() * * *" << std::endl;
+	for (int i = 1; i <= 11; i++) {
 		mstack.push(i);
 		std::cout << "Pushed " << i << " to the stack" << std::endl;
 	}
@@ -29,8 +27,8 @@ int main(void) {
 	std::cout << "On the top() of the stack: " << mstack.top() << std::endl;
 	
 	std::cout << std::endl << "* * * Iterating forward in the stack * * *" << std::endl;
-	MutantStack<int>::iterator it = mstack.begin(); //points to the first element
-	MutantStack<int>::iterator end = mstack.end(); // points ONE PAST the last element
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator end = mstack.end();
 	while (it != end) {
 		std::cout << *it << std::endl;
 		it++;
@@ -46,11 +44,15 @@ int main(void) {
 	}
 	
 	std::cout << std::endl << "* * * Handling const * * *" << std::endl;
-	//show that the class works with const container
+	MutantStack<int> const conststack(mstack);
+	MutantStack<int>::const_iterator const constit = conststack.begin();
+	std::cout << "First element of the new stack: " << *constit << std::endl;
 
 	std::cout << std::endl << "* * * Copy & assignment * * *" << std::endl;
-	//show that we have a deep copy
+	std::cout << "Address of the first container: " << mstack.getContainerAddress() << std::endl;
+	std::cout << "Address of the second container: " << conststack.getContainerAddress() << std::endl << std::endl;
 
+	std::cout << "* * * Destructor prints * * *" << std::endl;
 	return (0);
 }
 
