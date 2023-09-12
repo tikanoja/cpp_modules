@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:40 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/11 20:50:25 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/12 10:45:00 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Span::Span(void) {
 Span::Span(unsigned int N) {
 	std::cout << "Span constructor called" << std::endl;
 	this->size = N;
+	container.reserve(N);
 	return ;
 }
 
@@ -63,12 +64,13 @@ void Span::addNumber(int number){
 }
 
 void Span::addManyNumbers(unsigned int amount, int number) {
-	for (unsigned int i = 0; i < amount; i++) {
-		if (container.size() < this->size)
-			container.push_back(number);
-		else
-			throw Span::ContainerFullException();
+	unsigned int firstEmptyIndex = container.size();
+	if (firstEmptyIndex + amount > this->size) {
+		std::cerr << "Error in addManyNumbers(): " << amount << " does not fit into the container" << std::endl;
+		throw Span::ContainerFullException();
 	}
+	container.resize(container.size() + amount);
+	std::fill_n(container.begin() + firstEmptyIndex, amount, number);
 	return ;
 }
 

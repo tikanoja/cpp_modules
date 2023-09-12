@@ -3,24 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:44:01 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/11 20:50:42 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/12 10:44:14 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 int main(void) {
-	std::cout << "* * * Million & then one * * *" << std::endl;
-	Span million(1000000);
-	try {
-		million.addManyNumbers(1000001, 42);
-	} catch (std::exception& e) {
-			std::cerr << "Caught an exception: " << e.what() << std::endl;
-	}
-
 	std::cout << std::endl << "* * * Getting the min & max span * * *" << std::endl;
 	Span foo(5);
 	try {
@@ -56,6 +48,26 @@ int main(void) {
 	
 	std::cout << "Return value of bar.longestSpan(): " << bar.longestSpan() << std::endl;
 	std::cout << "Return value of bar.shortestSpan(): " << bar.shortestSpan() << std::endl << std::endl;
+
+	std::cout << "* * * Stress test!!! * * *" << std::endl;
+	Span tengrand(10000);
+	try {
+		tengrand.addNumber(1);
+		tengrand.addManyNumbers(2499, 42);
+		tengrand.addNumber(50);
+		tengrand.addManyNumbers(2499, 100);
+		tengrand.addNumber(101);
+		tengrand.addManyNumbers(2499, 200);
+		tengrand.addNumber(252);
+		tengrand.addManyNumbers(2499, 500);
+		tengrand.addManyNumbers(99999, 1);
+	} catch (std::exception& e) {
+			std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
+	
+	std::cout << "Return value of tengrand.longestSpan(): " << tengrand.longestSpan() << std::endl;
+	std::cout << "Return value of tengrand.shortestSpan(): " << tengrand.shortestSpan() << std::endl << std::endl;
+
 	return (0);
 }
 
