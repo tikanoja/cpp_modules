@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:20:03 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/11 15:28:29 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:01:31 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ std::deque<T>* MutantStack<T>::getContainerAddress(void) {
 
 template <typename T>
 const std::deque<T>* MutantStack<T>::getContainerAddress(void) const {
-	return &(this->c);
+	return (&this->c);
 }
 
 #endif
