@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/13 14:47:42 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:59:41 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class BitcoinExchange {
 				const char* what() const throw();
 		};
 
-		class StringstreamException : public std::exception {
+		class StrToFloatException : public std::exception {
 			public:
 				const char* what() const throw();
 		};

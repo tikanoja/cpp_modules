@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/13 15:07:39 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:58:33 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,22 @@ void BitcoinExchange::extractCsv(void) {
 		
 	std::string line;
 	std::string date;
+	std::string value_str;
 	float value;
 	
 	std::getline(inFile, line); //skip first line
 	while (std::getline(inFile, line)){
 		std::istringstream iss(line); //convert line to stringstream
 		std::getline(iss, date, ','); //write part before comma to date
-		iss >> std::fixed >> std::setprecision(2) >> value; //write part after comma to value w precision of 2
-		if (iss.fail()) {
-        	std::cerr << "Failed to convert numeric value." << std::endl;
-        	throw BitcoinExchange::StringstreamException();
+		std::getline(iss, value_str, '\n'); //write part after comma to value string
+		std::istringstream issvalue(value_str);
+		if (!(issvalue >> value)) {
+        	std::cerr << "Failed to convert price to number." << std::endl;
+        	throw BitcoinExchange::StrToFloatException();
     	}
-		database[date] = value; //plug key value into map
+		database[date] = value;
     }
+	
 	inFile.close();
 	return ;
 }
@@ -70,6 +73,6 @@ const char* BitcoinExchange::FileException::what() const throw() {
 	return ("could not open file.\0");
 }
 
-const char* BitcoinExchange::StringstreamException::what() const throw() {
+const char* BitcoinExchange::StrToFloatException::what() const throw() {
 	return ("Failed to convert value to float.\0");
 }

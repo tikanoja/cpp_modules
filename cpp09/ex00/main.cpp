@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:36:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/13 15:07:43 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:59:43 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int ac, char** av) {
 	std::map<std::string, float>::iterator it;
     for (it = BtcEx.database.begin(); it != BtcEx.database.end(); ++it) {
         std::cout << "Key: " << it->first;
-        std::cout << ", Value: " << it->second << std::endl;
+        std::cout << ", Value: " << std::fixed << std::setprecision(2) << it->second << std::endl;
     }
 
 	(void)av;
