@@ -6,30 +6,31 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:36:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/12 16:52:00 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:07:43 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <iostream>
-#include <fstream>
 
+//maybe map? date == key, price == value
 int main(int ac, char** av) {
-	if (ac != 2) {
-		std::cerr << "Please provide one argument. (database)" << std::endl;
-		return (1);
+	BitcoinExchange BtcEx;
+	
+	try {
+		BtcEx.checkArgument(ac); 
+		BtcEx.extractCsv();
+		//read input to map
+		//process data
+	} catch (std::exception& e) {
+		std::cerr << "Error: " << e.what() << std::endl;
 	}
-	std::ifstream inFile;
-	inFile.open(av[1]);
-    if (!inFile){
-        std::cerr << "Failed to open file!" << std::endl;
-        return (1);
+	
+	std::map<std::string, float>::iterator it;
+    for (it = BtcEx.database.begin(); it != BtcEx.database.end(); ++it) {
+        std::cout << "Key: " << it->first;
+        std::cout << ", Value: " << it->second << std::endl;
     }
-	std::string temp;
-	while (std::getline(inFile, temp)){
-        std::cout << temp << std::endl;
-		//analyze line
-    }
-	inFile.close();
+
+	(void)av;
 	return (0);
 }
