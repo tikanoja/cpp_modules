@@ -6,11 +6,11 @@
 #    By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/01 13:53:37 by ttikanoj          #+#    #+#              #
-#    Updated: 2023/09/14 15:26:11 by ttikanoj         ###   ########.fr        #
+#    Updated: 2023/09/14 15:31:04 by ttikanoj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = rpn
+NAME = RPN
 
 SRC = main.cpp RPN.cpp
 
