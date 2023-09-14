@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/13 19:59:41 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:11:20 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 #include <map>
 #include <string>
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <iomanip>
+#include <fstream> //handling input files
+#include <sstream> //istringstream conversions
+#include <iomanip> //printing precision
+#include <cctype> //isdigit
 
 class BitcoinExchange {
 	private:
@@ -33,6 +34,10 @@ class BitcoinExchange {
 
 		void checkArgument(int ac);
 		void extractCsv(void);
+		void processInput(const char* input);
+		int validateDate(std::string date); //valiDate() :-D
+		std::map<std::string, float>::iterator findClosestKey(std::string date);
+		std::string parseNewKey(int year, int month, int day);
 
 		class FileException : public std::exception {
 			public:
@@ -40,6 +45,11 @@ class BitcoinExchange {
 		};
 
 		class StrToFloatException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+
+		class FormatException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
