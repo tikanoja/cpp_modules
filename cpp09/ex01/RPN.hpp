@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:32 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/15 16:25:40 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/17 19:39:56 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #include <stack>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 
 class RPN {
 	private:
-		std::stack<int> numbers;
+		std::stack<int> numstack;
 		
 	public:
 		RPN(RPN const& other);
@@ -28,9 +29,9 @@ class RPN {
 		RPN(void);
 		~RPN(void);
 
-		int isOperator(char c);
-		int isNumber(char* c); //koska jos - ni pitää pystyy tsek seuraava
-		int validateInput(char* input);
+		// int isOperator(char *s, int i);
+		// int isNumber(char* s, int i); //koska jos - ni pitää pystyy tsek seuraava
+		// int validateInput(char* input);
 		void calculate(std::string input);
 		class InputException : public std::exception {
 			public:
