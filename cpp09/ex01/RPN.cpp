@@ -6,7 +6,7 @@
 /*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:29 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/17 19:39:46 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/17 19:41:13 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ void RPN::calculate(std::string input) {
 			std::cerr << "invalid token :(" << std::endl;
 		}
 	}
-
-	(void)input;
 	return ;
 }
 
