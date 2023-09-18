@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:26:58 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 11:35:58 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:27:04 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ int main(int ac, char** av) {
 		std::cerr << "usage: " << av[0] << " 3 5 9 7 4" << std::endl << "replace nums w positive ints" << std::endl;
 		return (1);
 	}
+	PmergeMe merge;
 	try {
-		//fill containers
-		//print BEFORE
+		merge.fillContainers(av);
+		merge.printVector(1);
 		//sort containers
-		//print AFTER
+		merge.printVector(2);
 		//print exec times for both
 	} catch (std::exception& e) {
 		std::cout << "Caught an error: " << e.what() << std::endl; 

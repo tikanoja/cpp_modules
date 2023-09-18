@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:27 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 11:33:02 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:54:13 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <vector>
 #include <deque>
 #include <stdexcept>
+#include <sstream>
+#include <cctype>
+#include <sys/time.h>
 
 class PmergeMe {
 	private:
@@ -30,7 +33,21 @@ class PmergeMe {
 		PmergeMe(void);
 		~PmergeMe(void);
 
+		void fillContainers(char** input);
+		void printVector(int flag);
+		void sortContainers();
+
 		class IntegerException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+
+		class DigitException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+		
+		class ConversionException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
