@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/14 15:11:20 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/18 09:21:18 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 #include <map>
 #include <string>
 #include <iostream>
-#include <fstream> //handling input files
-#include <sstream> //istringstream conversions
-#include <iomanip> //printing precision
-#include <cctype> //isdigit
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <cctype>
 
 class BitcoinExchange {
 	private:
-		
+		std::map<std::string, float> database;
 		BitcoinExchange(BitcoinExchange const& other);
 		BitcoinExchange& operator=(BitcoinExchange const& other);
 		
+		
 	public:
-		std::map<std::string, float> database; //move to private when it works...
 		BitcoinExchange(void);
 		~BitcoinExchange(void);
 

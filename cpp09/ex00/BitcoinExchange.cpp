@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/14 15:17:37 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/18 09:34:03 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const& other){
 BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other){
 	std::cout << "BitcoinExchange assignment operator called" << std::endl;
 	if (this != &other) {
-		//copy stuff
+		this->database.clear();
+		std::map<std::string, float>::const_iterator it;
+		for (it = other.database.begin(); it != other.database.end(); it++) { //vai ++it ???
+			this->database[it->first] = it->second;
+		}
 	}
 	return (*this);
 }
