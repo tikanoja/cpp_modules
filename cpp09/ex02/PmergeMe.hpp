@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:27 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 13:54:13 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/18 20:37:55 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdexcept>
 #include <sstream>
 #include <cctype>
-#include <sys/time.h>
+#include <ctime>
 
 class PmergeMe {
 	private:
@@ -35,23 +35,29 @@ class PmergeMe {
 
 		void fillContainers(char** input);
 		void printVector(int flag);
-		void sortContainers();
+		void printTimes(void); //!
+		void sortContainers(void);
+		
+		void mergeInsertionSortVec(std::vector<int>& myVec);
+		void insertionSortVec(std::vector<int>& myVec, int vecsize);
+		void mergeVec(std::vector<int>& myVec, std::vector<int>& left, std::vector<int>& right);
+		
+		void mergeInsertionSortDeq(void);
+		void insertionSortDeq(void);
+		void mergeDeq(void);
 
 		class IntegerException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
-
 		class DigitException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
-		
 		class ConversionException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
-		
 };
 
 #endif
