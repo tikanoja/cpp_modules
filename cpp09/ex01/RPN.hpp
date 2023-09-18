@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:32 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 10:24:31 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:03:14 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <list>
 
 class RPN {
 	private:
-		std::stack<float> numstack;
+		std::stack<float, std::list<float> > numstack;
 		
 	public:
 		RPN(RPN const& other);
