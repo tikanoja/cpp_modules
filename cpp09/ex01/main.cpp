@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:25 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/17 19:40:18 by tuukka           ###   ########.fr       */
+/*   Updated: 2023/09/18 09:43:30 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int main(int ac, char** av) {
 		return (1);
 	}
 	std::string input = av[1];
-	calculator.calculate(input);
-	//validate input ??
+	try {
+		calculator.calculate(input);
+	} catch (std::exception& e) {
+		std::cerr << "Caught an exception: " << e.what() << std::endl;
+	}
 	return (0);
 }
