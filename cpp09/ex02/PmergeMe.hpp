@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:27 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 11:12:32 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:33:02 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <deque>
+#include <stdexcept>
 
 class PmergeMe {
 	private:
@@ -29,8 +30,11 @@ class PmergeMe {
 		PmergeMe(void);
 		~PmergeMe(void);
 
+		class IntegerException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 		
-
 };
 
 #endif
