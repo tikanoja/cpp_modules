@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 09:36:22 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:51:33 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other){
 	if (this != &other) {
 		this->database.clear();
 		std::map<std::string, float>::const_iterator it;
-		for (it = other.database.begin(); it != other.database.end(); it++) { //vai ++it ???
+		for (it = other.database.begin(); it != other.database.end(); it++) {
 			this->database[it->first] = it->second;
 		}
 	}
@@ -56,15 +56,15 @@ void BitcoinExchange::extractCsv(void) {
 	std::string value_str;
 	float value;
 	
-	std::getline(inFile, line); //skip first line
+	std::getline(inFile, line);
 	if (line != "date,exchange_rate")
 		throw BitcoinExchange::FormatException();
 	while (std::getline(inFile, line)){
-		std::istringstream iss(line); //convert line to stringstream
-		std::getline(iss, date, ','); //write part before comma to date
-		std::getline(iss, value_str, '\n'); //write part after comma to value string
+		std::istringstream iss(line);
+		std::getline(iss, date, ',');
+		std::getline(iss, value_str, '\n');
 		std::istringstream issvalue(value_str);
-		if (!(issvalue >> value)) { //convert ss to float
+		if (!(issvalue >> value)) {
         	std::cerr << "Failed to convert price to number." << std::endl;
         	throw BitcoinExchange::StrToFloatException();
     	}
@@ -179,22 +179,21 @@ void BitcoinExchange::processInput(const char* input) {
 	float value;
 	std::map<std::string, float>::iterator it;
 	
-	std::getline(inFile, line); //skip first line
+	std::getline(inFile, line);
 	if (line != "date | value")
 		throw BitcoinExchange::FormatException();
 	while (std::getline(inFile, line)){
-		std::istringstream iss(line); //convert line to stringstream
-		std::getline(iss, date, '|'); //write part before pipe to date
+		std::istringstream iss(line);
+		std::getline(iss, date, '|');
 		if (date[date.length() - 1] == ' ')
-			date.pop_back(); //removing extra space before float
-		std::getline(iss, value_str, '\n'); //write part after comma to value string
+			date.pop_back();
+		std::getline(iss, value_str, '\n');
 		std::istringstream issvalue(value_str);
-		if (!(issvalue >> value)) { //convert ss to float
+		if (!(issvalue >> value)) {
         	std::cerr << "Failed to convert price to number." << std::endl;
         	throw BitcoinExchange::StrToFloatException();
     	}
 		
-		//check that date is valid
 		if (validateDate(date)) {
 			std::cerr << "Error: bad input => " << date << std::endl;
 			continue ;
@@ -207,7 +206,7 @@ void BitcoinExchange::processInput(const char* input) {
 		}
 		
 		it = database.find(date);
-		if (it == database.end()) { // we did not find it
+		if (it == database.end()) {
 			it = findClosestKey(date);
 			if (it == database.end()) {
 				std::cerr << "Error: date too early, no reference data." << std::endl;

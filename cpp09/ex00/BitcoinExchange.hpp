@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 09:21:18 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:51:44 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class BitcoinExchange {
 		void checkArgument(int ac);
 		void extractCsv(void);
 		void processInput(const char* input);
-		int validateDate(std::string date); //valiDate() :-D
+		int validateDate(std::string date);
 		std::map<std::string, float>::iterator findClosestKey(std::string date);
 		std::string parseNewKey(int year, int month, int day);
 
