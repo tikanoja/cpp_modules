@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:30 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 11:03:04 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:21:24 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other){
 	return (*this);
 }
 
-void PmergeMe::fillContainers(char** input) {
+void PmergeMe::fillVec(char** input) {
 	std::string token;
 	int number;
 	int i = 1;
@@ -51,6 +51,24 @@ void PmergeMe::fillContainers(char** input) {
 		}
 		if (std::istringstream(token) >> number) {
 			vec.push_back(number);
+		} else
+			throw PmergeMe::ConversionException();
+		i++;
+	}
+	return ;
+}
+
+void PmergeMe::fillDeq(char** input) {
+	std::string token;
+	int number;
+	int i = 1;
+	while (input[i]) {
+		token = input[i];
+		for (unsigned long i = 0; i < token.length(); i++) {
+			if (!std::isdigit(token[i]))
+				throw PmergeMe::DigitException();
+		}
+		if (std::istringstream(token) >> number) {
 			deq.push_back(number);
 		} else
 			throw PmergeMe::ConversionException();
@@ -61,9 +79,11 @@ void PmergeMe::fillContainers(char** input) {
 
 void PmergeMe::printVector(int flag) {
 	if (flag == 1)
-		std::cout << "Before: ";
-	else
-		std::cout << "After:  ";
+		std::cout << "Before (vec): ";
+	else if (flag == 2)
+		std::cout << "After (vec):  ";
+	else if (flag == 3)
+		std::cout << "Before:       ";
 	for (unsigned long i = 0; i < vec.size(); i++) {
 		std::cout << " " << vec[i];
 	}
@@ -73,9 +93,9 @@ void PmergeMe::printVector(int flag) {
 
 void PmergeMe::printDeque(int flag) {
 	if (flag == 1)
-		std::cout << "Before: ";
+		std::cout << "Before (deq): ";
 	else
-		std::cout << "After:  ";
+		std::cout << "After (deq):  ";
 	std::deque<int>::iterator it;
 	for (it = deq.begin(); it != deq.end(); it++) {
 		std::cout << " " << *it;
@@ -226,13 +246,29 @@ void PmergeMe::mergeInsertionSortDeq(std::deque<int>& myDeq) {
 	return ;
 }
 
-void PmergeMe::sortContainers(void) {
+void PmergeMe::processVec(char** input) {
+	vecStart = clock();
+	fillVec(input);
 	mergeInsertionSortVec(this->vec);
-	//start clock()
-	mergeInsertionSortDeq(this->deq);
-	//end clock()
-	//calculate difference
+	vecEnd = clock();
+	ticks = static_cast<double>(vecEnd - vecStart);
+	vecTime = ticks / CLOCKS_PER_SEC * 1000000; //1 s is 1000000 us
 	return ;
+}
+
+void PmergeMe::processDeq(char** input) {
+	deqStart = clock();
+	fillDeq(input);
+	mergeInsertionSortDeq(this->deq);
+	deqEnd = clock();
+	ticks = static_cast<double>(deqEnd - deqStart);
+	deqTime = ticks / CLOCKS_PER_SEC * 1000000; //1 s is 1000000 us
+	return ;
+}
+
+void PmergeMe::printTimes(void) {
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << vecTime << " us" << std::endl;
+	std::cout << "Time to process a range of " << deq.size() << " elements with std::deque  : " << deqTime << " us" << std::endl;
 }
 
 const char* PmergeMe::IntegerException::what() const throw() {
