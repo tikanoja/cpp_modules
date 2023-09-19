@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:27 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:20:50 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:56:38 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ class PmergeMe {
 		PmergeMe(const PmergeMe& other);
 		PmergeMe& operator=(const PmergeMe& other);
 		
+		void mergeVec(std::vector<int>& myVec, std::vector<int>& left, std::vector<int>& right);
+		void insertionSortVec(std::vector<int>& myVec, int vecsize);
+		void mergeInsertionSortVec(std::vector<int>& myVec);
+		
+		void mergeDeq(std::deque<int>& myDeq, std::deque<int>& left, std::deque<int>& right);
+		void insertionSortDeq(std::deque<int>& myDeq, int deqsize);
+		void mergeInsertionSortDeq(std::deque<int>& myDeq);
+		
 	public:
 		PmergeMe(void);
 		~PmergeMe(void);
@@ -43,14 +51,6 @@ class PmergeMe {
 		void processVec(char** input);
 		void processDeq(char** input);
 		
-		void mergeVec(std::vector<int>& myVec, std::vector<int>& left, std::vector<int>& right);
-		void insertionSortVec(std::vector<int>& myVec, int vecsize);
-		void mergeInsertionSortVec(std::vector<int>& myVec);
-		
-		void mergeDeq(std::deque<int>& myDeq, std::deque<int>& left, std::deque<int>& right);
-		void insertionSortDeq(std::deque<int>& myDeq, int deqsize);
-		void mergeInsertionSortDeq(std::deque<int>& myDeq);
-
 		class IntegerException : public std::exception {
 			public:
 				const char* what() const throw();

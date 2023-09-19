@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:30 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:21:24 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:55:33 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,11 +231,11 @@ void PmergeMe::mergeInsertionSortDeq(std::deque<int>& myDeq) {
 		insertionSortDeq(myDeq, deqsize);
 	else {
 		int mid = deqsize / 2;
-		std::deque<int> left, right; // no constructor like in std::vector
-		for (int i = 0; i < mid; i++) { //vai ++i ?
+		std::deque<int> left, right;
+		for (int i = 0; i < mid; i++) {
 			left.push_back(myDeq[i]);
 		}
-		for (int i = mid; i < deqsize; i++) {  //vai ++i ?
+		for (int i = mid; i < deqsize; i++) {
 			right.push_back(myDeq[i]);
 		}
 		mergeInsertionSortDeq(left);
@@ -252,7 +252,7 @@ void PmergeMe::processVec(char** input) {
 	mergeInsertionSortVec(this->vec);
 	vecEnd = clock();
 	ticks = static_cast<double>(vecEnd - vecStart);
-	vecTime = ticks / CLOCKS_PER_SEC * 1000000; //1 s is 1000000 us
+	vecTime = ticks / CLOCKS_PER_SEC * 1000000;
 	return ;
 }
 
@@ -262,7 +262,7 @@ void PmergeMe::processDeq(char** input) {
 	mergeInsertionSortDeq(this->deq);
 	deqEnd = clock();
 	ticks = static_cast<double>(deqEnd - deqStart);
-	deqTime = ticks / CLOCKS_PER_SEC * 1000000; //1 s is 1000000 us
+	deqTime = ticks / CLOCKS_PER_SEC * 1000000;
 	return ;
 }
 
