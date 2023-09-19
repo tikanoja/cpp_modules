@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:51:33 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:03:51 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void BitcoinExchange::extractCsv(void) {
 		std::getline(iss, value_str, '\n');
 		std::istringstream issvalue(value_str);
 		if (!(issvalue >> value)) {
-        	std::cerr << "Failed to convert price to number." << std::endl;
+        	std::cout << "Failed to convert price to number." << std::endl;
         	throw BitcoinExchange::StrToFloatException();
     	}
 		database[date] = value;
@@ -190,18 +190,18 @@ void BitcoinExchange::processInput(const char* input) {
 		std::getline(iss, value_str, '\n');
 		std::istringstream issvalue(value_str);
 		if (!(issvalue >> value)) {
-        	std::cerr << "Failed to convert price to number." << std::endl;
+        	std::cout << "Failed to convert price to number." << std::endl;
         	throw BitcoinExchange::StrToFloatException();
     	}
 		
 		if (validateDate(date)) {
-			std::cerr << "Error: bad input => " << date << std::endl;
+			std::cout << "Error: bad input => " << date << std::endl;
 			continue ;
 		} else if (value < 0) {
-			std::cerr << "Error: not a positive number." << std::endl;
+			std::cout << "Error: not a positive number." << std::endl;
 			continue ;
 		} else if (value > 1000) {
-			std::cerr << "Error: too large number." << std::endl;
+			std::cout << "Error: too large number." << std::endl;
 			continue ;
 		}
 		
@@ -209,7 +209,7 @@ void BitcoinExchange::processInput(const char* input) {
 		if (it == database.end()) {
 			it = findClosestKey(date);
 			if (it == database.end()) {
-				std::cerr << "Error: date too early, no reference data." << std::endl;
+				std::cout << "Error: date too early, no reference data." << std::endl;
 				continue ;
 			}
 		}

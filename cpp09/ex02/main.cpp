@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:26:58 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:21:19 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:03:51 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char** av) {
 	if (ac == 1) {
-		std::cerr << "usage: " << av[0] << " 3 5 9 7 4" << std::endl << "replace nums w positive ints" << std::endl;
+		std::cout << "usage: " << av[0] << " 3 5 9 7 4" << std::endl << "replace nums w positive ints" << std::endl;
 		return (1);
 	}
 	PmergeMe inputCheck;
