@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:32 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 11:03:14 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:53:48 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,14 @@ class RPN {
 			public:
 				const char* what() const throw();
 		};
-		
 		class DivisionException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
-
 		class OperandException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
-
 		class TokenException : public std::exception {
 			public:
 				const char* what() const throw();

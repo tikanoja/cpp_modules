@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:29 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/18 11:02:45 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:53:30 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void RPN::calculate(std::string input) {
 	std::string token;
 	std::istringstream iss(input);
 	float num1, num2, res;
-	while (iss >> token) { //tokenizes input based on whitespaces
+	while (iss >> token) {
 		if (token == "+" || token == "-" || token == "*" || token == "/") { //OPERATOR
 			if (numstack.size() < 2)
 				throw RPN::SyntaxException();
