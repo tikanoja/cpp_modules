@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:27 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:56:38 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:58:13 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,6 @@ class PmergeMe {
 		void insertionSortDeq(std::deque<int>& myDeq, int deqsize);
 		void mergeInsertionSortDeq(std::deque<int>& myDeq);
 		
-	public:
-		PmergeMe(void);
-		~PmergeMe(void);
-
-		void fillVec(char** input);
-		void fillDeq(char** input);
-		void printVector(int flag);
-		void printDeque(int flag);
-		void printTimes(void);
-		void processVec(char** input);
-		void processDeq(char** input);
-		
 		class IntegerException : public std::exception {
 			public:
 				const char* what() const throw();
@@ -63,6 +51,18 @@ class PmergeMe {
 			public:
 				const char* what() const throw();
 		};
+		
+	public:
+		PmergeMe(void);
+		~PmergeMe(void);
+
+		void fillVec(char** input);
+		void fillDeq(char** input);
+		void printVector(int flag);
+		void printDeque(int flag);
+		void printTimes(void);
+		void processVec(char** input);
+		void processDeq(char** input);
 };
 
 #endif
