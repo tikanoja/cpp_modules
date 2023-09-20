@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:34 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:51:44 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:25:16 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,27 @@
 class BitcoinExchange {
 	private:
 		std::map<std::string, float> database;
+		
 		BitcoinExchange(BitcoinExchange const& other);
 		BitcoinExchange& operator=(BitcoinExchange const& other);
 		
+		int validateDate(std::string date);
+		void clearUtilVars(std::string& line, std::string& date, std::string& value_str);
+		std::map<std::string, float>::iterator findClosestKey(std::string date);
+		std::string parseNewKey(int year, int month, int day);
+
+		class FileException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+		class StrToFloatException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+		class FormatException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
 		
 	public:
 		BitcoinExchange(void);
@@ -35,24 +53,6 @@ class BitcoinExchange {
 		void checkArgument(int ac);
 		void extractCsv(void);
 		void processInput(const char* input);
-		int validateDate(std::string date);
-		std::map<std::string, float>::iterator findClosestKey(std::string date);
-		std::string parseNewKey(int year, int month, int day);
-
-		class FileException : public std::exception {
-			public:
-				const char* what() const throw();
-		};
-
-		class StrToFloatException : public std::exception {
-			public:
-				const char* what() const throw();
-		};
-
-		class FormatException : public std::exception {
-			public:
-				const char* what() const throw();
-		};
 };
 
 #endif

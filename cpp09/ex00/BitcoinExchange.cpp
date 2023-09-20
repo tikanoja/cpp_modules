@@ -6,30 +6,30 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:35:36 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 13:03:51 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:21:23 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(void){
-	std::cout << "BitcoinExchange(void) constructor called" << std::endl;
+	// std::cout << "BitcoinExchange(void) constructor called" << std::endl;
 	return ;
 }
 
 BitcoinExchange::~BitcoinExchange(void){
-	std::cout << "BitcoinExchange destructor called" << std::endl;
+	// std::cout << "BitcoinExchange destructor called" << std::endl;
 	return ;
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const& other){
-	std::cout << "BitcoinExchange copy constructor called" << std::endl;
+	// std::cout << "BitcoinExchange copy constructor called" << std::endl;
 	*this = other;
 	return ;
 }
 
 BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const& other){
-	std::cout << "BitcoinExchange assignment operator called" << std::endl;
+	// std::cout << "BitcoinExchange assignment operator called" << std::endl;
 	if (this != &other) {
 		this->database.clear();
 		std::map<std::string, float>::const_iterator it;
@@ -167,6 +167,13 @@ std::map<std::string, float>::iterator BitcoinExchange::findClosestKey(std::stri
 	return (it);
 }
 
+void BitcoinExchange::clearUtilVars(std::string& line, std::string& date, std::string& value_str) {
+	line.clear();
+	date.clear();
+	value_str.clear();
+	return ;
+}
+
 void BitcoinExchange::processInput(const char* input) {
 	std::string input_str(input);
 	
@@ -183,6 +190,7 @@ void BitcoinExchange::processInput(const char* input) {
 	if (line != "date | value")
 		throw BitcoinExchange::FormatException();
 	while (std::getline(inFile, line)){
+		value = 0;
 		std::istringstream iss(line);
 		std::getline(iss, date, '|');
 		if (date[date.length() - 1] == ' ')
@@ -190,18 +198,21 @@ void BitcoinExchange::processInput(const char* input) {
 		std::getline(iss, value_str, '\n');
 		std::istringstream issvalue(value_str);
 		if (!(issvalue >> value)) {
-        	std::cout << "Failed to convert price to number." << std::endl;
-        	throw BitcoinExchange::StrToFloatException();
+        	std::cout << "Error: bad input => " << line << std::endl;
+			clearUtilVars(line, date, value_str);
+			continue ;
     	}
-		
 		if (validateDate(date)) {
 			std::cout << "Error: bad input => " << date << std::endl;
+			clearUtilVars(line, date, value_str);
 			continue ;
 		} else if (value < 0) {
 			std::cout << "Error: not a positive number." << std::endl;
+			clearUtilVars(line, date, value_str);
 			continue ;
 		} else if (value > 1000) {
 			std::cout << "Error: too large number." << std::endl;
+			clearUtilVars(line, date, value_str);
 			continue ;
 		}
 		
@@ -216,6 +227,7 @@ void BitcoinExchange::processInput(const char* input) {
 			
 		std::cout << date << " => " << value << " = ";
 		std::cout << std::fixed << std::setprecision(2) << it->second * value << std::endl;
+		clearUtilVars(line, date, value_str);
     }
 	
 	inFile.close();
