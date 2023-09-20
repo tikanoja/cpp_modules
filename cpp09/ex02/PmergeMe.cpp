@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: tuukka <tuukka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:27:30 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:55:33 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/20 09:40:19 by tuukka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,33 +105,31 @@ void PmergeMe::printDeque(int flag) {
 }
 
 void PmergeMe::mergeVec(std::vector<int>& myVec, std::vector<int>& left, std::vector<int>& right) {
-	int i = 0, j = 0, k = 0;
+	int l = 0, r = 0, v = 0;
     int leftSize = left.size();
     int rightSize = right.size();
-
 	//merge elems of left & right to vec
-	while (i < leftSize && j < rightSize) {
-    	if (left[i] < right[j]) {
-			myVec[k] = left[i]; //copying the smaller elem from left
-			i++;
+	while (l < leftSize && r < rightSize) {
+    	if (left[l] < right[r]) {
+			myVec[v] = left[l]; //copying the smaller elem from left
+			l++;
 		} else {
-			myVec[k] = right[j]; //copying the smaller elem from right
-			j++;
+			myVec[v] = right[r]; //copying the smaller elem from right
+			r++;
 		}
-		k++;
-	}
-	
-	//if we have any remaining elems in left, copy to vec
-	while (i < leftSize) {
-		myVec[k] = left[i];
-		i++;
-		k++;
+		v++;
 	}
 	//if we have any remaining elems in left, copy to vec
-	while (j < rightSize) {
-		myVec[k] = right[j];
-		j++;
-		k++;
+	while (l < leftSize) {
+		myVec[v] = left[l];
+		l++;
+		v++;
+	}
+	//if we have any remaining elems in left, copy to vec
+	while (r < rightSize) {
+		myVec[v] = right[r];
+		r++;
+		v++;
 	}
 	return ;
 }
@@ -175,33 +173,31 @@ void PmergeMe::mergeInsertionSortVec(std::vector<int>& myVec) {
 }
 
 void PmergeMe::mergeDeq(std::deque<int>& myDeq, std::deque<int>& left, std::deque<int>& right) {
-	int i = 0, j = 0, k = 0;
+	int l = 0, r = 0, d = 0;
     int leftSize = left.size();
     int rightSize = right.size();
-
 	//merge elems of left & right to deq
-	while (i < leftSize && j < rightSize) {
-    	if (left[i] < right[j]) {
-			myDeq[k] = left[i]; //copying the smaller elem from left
-			i++;
+	while (l < leftSize && r < rightSize) {
+    	if (left[l] < right[r]) {
+			myDeq[d] = left[l]; //copying the smaller elem from left
+			l++;
 		} else {
-			myDeq[k] = right[j]; //copying the smaller elem from right
-			j++;
+			myDeq[d] = right[r]; //copying the smaller elem from right
+			r++;
 		}
-		k++;
-	}
-	
-	//if we have any remaining elems in left, copy to deq
-	while (i < leftSize) {
-		myDeq[k] = left[i];
-		i++;
-		k++;
+		d++;
 	}
 	//if we have any remaining elems in left, copy to deq
-	while (j < rightSize) {
-		myDeq[k] = right[j];
-		j++;
-		k++;
+	while (l < leftSize) {
+		myDeq[d] = left[l];
+		l++;
+		d++;
+	}
+	//if we have any remaining elems in left, copy to deq
+	while (r < rightSize) {
+		myDeq[d] = right[r];
+		r++;
+		d++;
 	}
 	return ;
 }
