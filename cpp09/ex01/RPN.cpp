@@ -6,30 +6,30 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:29 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:53:30 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:40:23 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 RPN::RPN(void){
-	std::cout << "RPN(void) constructor called" << std::endl;
+	// std::cout << "RPN(void) constructor called" << std::endl;
 	return ;
 }
 
 RPN::~RPN(void){
-	std::cout << "RPN destructor called" << std::endl;
+	// std::cout << "RPN destructor called" << std::endl;
 	return ;
 }
 
 RPN::RPN(RPN const& other){
-	std::cout << "RPN copy constructor called" << std::endl;
+	// std::cout << "RPN copy constructor called" << std::endl;
 	*this = other;
 	return ;
 }
 
 RPN& RPN::operator=(RPN const& other){
-	std::cout << "RPN assignment operator called" << std::endl;
+	// std::cout << "RPN assignment operator called" << std::endl;
 	if (this != &other) {
 		while (!this->numstack.empty())
 			this->numstack.pop();

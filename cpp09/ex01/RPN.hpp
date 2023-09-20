@@ -6,7 +6,7 @@
 /*   By: ttikanoj <ttikanoj@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:24:32 by ttikanoj          #+#    #+#             */
-/*   Updated: 2023/09/19 12:53:48 by ttikanoj         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:42:57 by ttikanoj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,8 @@
 class RPN {
 	private:
 		std::stack<float, std::list<float> > numstack;
-		
-	public:
 		RPN(RPN const& other);
 		RPN& operator=(RPN const& other);
-		RPN(void);
-		~RPN(void);
-		
-		void calculate(std::string input);
 		
 		class SyntaxException : public std::exception {
 			public:
@@ -48,6 +42,12 @@ class RPN {
 			public:
 				const char* what() const throw();
 		};
+		
+	public:
+		RPN(void);
+		~RPN(void);
+		
+		void calculate(std::string input);
 };
 
 # endif
